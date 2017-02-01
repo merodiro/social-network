@@ -29,14 +29,13 @@ export default {
 	methods: {
 		create_post () {
 
-			axios.post('post/create', {content: this.content})
+			axios.post('/api/post/create', {content: this.content})
 				.then(res => {
 					this.content = ''
 					noty({
 						text: 'Your post has been published'
 					})
 					this.$store.commit('ADD_POST', res.data)
-					console.log(res)
 				})
 		}
 	},

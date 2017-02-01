@@ -38,7 +38,7 @@ export default {
 	},
 	methods: {
 		get_feed() {
-			axios.get('/feed')
+			axios.get('/api/feed')
 				.then(res => {
 					res.data.forEach(post => {
 						this.$store.commit('ADD_POST', post)

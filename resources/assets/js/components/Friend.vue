@@ -15,7 +15,7 @@
 <script>
     export default {
         mounted() {
-            axios.get('/check_relationship_status/' + this.profile_user_id)
+            axios.get('/api/friend/check/' + this.profile_user_id)
                 .then(res => {
                     this.status = res.data.status
                     this.loading = false
@@ -31,7 +31,7 @@
         methods: {
             add_friend() {
                 this.loading = true
-                axios.get('/add_friend/'+ this.profile_user_id)
+                axios.get('/api/friend/add/'+ this.profile_user_id)
                     .then(res => {
                         if (res.data) {
                             this.status ="waiting"
@@ -44,7 +44,7 @@
             },
             accept_friend() {
                 this.loading = true
-                axios.get('/accept_friend/'+ this.profile_user_id)
+                axios.get('/api/friend/accept/'+ this.profile_user_id)
                     .then(res => {
                         if (res.data) {
                             this.status ="friends"
@@ -57,7 +57,7 @@
             },
             delete_friend() {
                 this.loading = true
-                axios.get('/delete_friend/' + this.profile_user_id)
+                axios.get('/api/friend/delete/' + this.profile_user_id)
                     .then(res => {
                         if (res.data) {
                             this.status = ''

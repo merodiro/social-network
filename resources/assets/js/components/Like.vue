@@ -53,7 +53,7 @@
         }, 
         methods: {
             like() {
-                axios.post('/like/' + this.id)
+                axios.post('/api/like/' + this.id)
                     .then(res => {
                         this.$store.commit('UPDATE_POST_LIKES', {
                             id: this.id,
@@ -66,7 +66,7 @@
                     })
             },
             unlike() {
-                axios.post('/unlike/' + this.id)
+                axios.post('/api/unlike/' + this.id)
                     .then(res => {
                         this.$store.commit('UNLIKE_POST', {
                             post_id: this.id,

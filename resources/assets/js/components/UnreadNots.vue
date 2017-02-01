@@ -22,7 +22,7 @@ export default {
 	methods:{
 
 		get_unread(){
-			axios.get('/get_unread')
+			axios.get('/api/get_unread')
 				.then(res => {
 					res.data.forEach(not => {
 						this.$store.commit('ADD_NOT', not)

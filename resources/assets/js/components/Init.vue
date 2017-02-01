@@ -11,7 +11,7 @@
 		},
 		methods: {
 			get_auth_user_data() {
-				axios.get('/get_auth_user_data')
+				axios.get('/api/user')
 					.then(res => {
 						this.$store.commit('AUTH_USER_DATA', res.data)
 					})
