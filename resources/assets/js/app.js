@@ -21,7 +21,6 @@ Vue.component('post', require('./components/Post.vue'));
 Vue.component('feed', require('./components/Feed.vue'));
 Vue.component('notification', require('./components/Notification.vue'));
 Vue.component('unread', require('./components/UnreadNots.vue'));
-Vue.component('init', require('./components/Init.vue'));
 Vue.component('search', require('./components/Search.vue'));
 
 

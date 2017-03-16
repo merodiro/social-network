@@ -10,6 +10,7 @@ window._ = require('lodash');
 window.$ = window.jQuery = require('jquery');
 
 require('bootstrap-sass');
+
 require('noty');
 
 $.noty.defaults.theme = 'metroui';
@@ -46,6 +47,8 @@ window.axios.defaults.headers.common = {
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
  */
+
+window.Pusher = require('pusher-js');
 
 import Echo from "laravel-echo"
 

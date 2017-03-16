@@ -13,13 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:api')->get('/user', 'UsersController@auth');
 
-Route::post('/search', function(Request $request) {
-	return App\User::search($request->get('query'))->take(3)->get();
-});
+Route::post('/search', 'UsersController@search');
 
 
 Route::group(['middleware' => 'auth:api'], function() {
@@ -36,9 +32,7 @@ Route::group(['middleware' => 'auth:api'], function() {
 
 	});
 
-	Route::get('get_unread', function() {
-	    return Auth::user()->unreadNotifications;
-	});
+	Route::get('get_unread', 'HomeController@unread_notifications');
 
 	Route::post('/like/{id}', 'LikesController@like');
 

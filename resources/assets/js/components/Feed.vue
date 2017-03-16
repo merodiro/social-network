@@ -5,7 +5,7 @@
 				<div class="panel panel-default" v-for="post in posts">
 					<div class="panel-heading">
 						<img :src="post.user.avatar" class="avatar-feed">
-						{{ post.user.name }}
+						<a :href="'/profile/'+post.user.slug">{{ post.user.name }}</a>
 						<span class="pull-right">{{ post.created_at }}</span>
 					</div>
 					<div class="panel-body">

@@ -80,12 +80,17 @@
 				</div>
 				<div class="panel-body">
 					<ul class="nav nav-pills nav-stacked">
-						@foreach ($friends as $friend)
-							<li><a href="{{$friend->url}}">
-								<img src="{{$friend->avatar}}" height="40px">
-								<span class="pull-right">{{$friend->name}}</span>
-							</a></li>
-						@endforeach
+						@if ($friends)
+							@foreach ($friends as $friend)
+								<li><a href="{{$friend->url}}">
+									<img src="{{$friend->avatar}}" height="40px">
+									<span class="pull-right">{{$friend->name}}</span>
+								</a></li>
+							@endforeach
+						@else
+							<p class="text-center">User has no friends</p>
+						@endif
+
 					</ul>
 				</div>
 			</div>

@@ -11,20 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
-Route::get('/profile/{slug}', 'profileController@index')
-    ->name('profile');
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function() {
     
+	Route::get('/home', 'HomeController@home');
 
     Route::name('profile.edit')->get('/profile/edit', 'profileController@edit');
 
@@ -33,3 +29,7 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/notifications', 'HomeController@notifications');
 
 });
+
+
+Route::get('/profile/{slug}', 'profileController@index')
+    ->name('profile');

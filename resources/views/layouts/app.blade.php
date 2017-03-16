@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -84,7 +84,6 @@
         @yield('content')
 
         @if (Auth::check())
-            <init></init>
             <notification :id="{{ Auth::id() }}"></notification>
         @endif
 
@@ -96,7 +95,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ mix('/js/app.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
     <script>
         @if (Session::has('success'))
             noty({

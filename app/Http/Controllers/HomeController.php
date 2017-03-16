@@ -7,14 +7,10 @@ use Auth;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+
+    public function index()
     {
-        $this->middleware('auth');
+        return view('welcome');
     }
 
     /**
@@ -22,7 +18,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function home()
     {
         return view('home');
     }
@@ -32,5 +28,10 @@ class HomeController extends Controller
     {
         Auth::user()->unreadnotifications->markAsRead();
         return view('nots')->with('nots', Auth::user()->notifications);
+    }
+
+    public function unread_notifications()
+    {
+        return Auth::user()->unreadNotifications;
     }
 }

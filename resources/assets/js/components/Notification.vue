@@ -7,12 +7,16 @@
 <script>
     export default {
         mounted() {
-            this.listen()
+            axios.get('/api/user')
+                .then(res => {
+                    this.$store.commit('AUTH_USER_DATA', res.data)
+                    this.listen()
+                })
         },
         props: ['id'],
         methods: {
             listen() {
-                Echo.private('App.User.' + this.id)
+                Echo.private('App.User.' + this.$store.state.auth_user.id)
                     .notification( (notification) => {
                         noty({
                             text: notification.message

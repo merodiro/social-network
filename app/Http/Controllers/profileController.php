@@ -11,8 +11,11 @@ class profileController extends Controller
 {
     public function index($slug)
     {
-    	$user = User::where('slug', $slug)->first();
+    	$user = User::where('slug', $slug)
+            ->with('profile')
+            ->first();
         $posts = $user->posts()->orderBy('id', 'desc')->get();
+
         $friends = $user->friends();
     	return view('profiles.profile')
             ->with('posts', $posts)
