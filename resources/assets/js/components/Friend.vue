@@ -33,6 +33,7 @@
                 this.loading = true
                 axios.get('/api/friend/add/'+ this.profile_user_id)
                     .then(res => {
+                        console.log(res)
                         if (res.data) {
                             this.status ="waiting"
                             noty({

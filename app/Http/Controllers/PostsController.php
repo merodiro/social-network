@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Post;
 use Auth;
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -16,27 +16,13 @@ class PostsController extends Controller
 
     public function feed()
     {
-    	$friends = Auth::user()->friends();
+    	$friends = Auth::user()->friends_ids();
 
-    	$feed = array();
+        $friends = $friends->merge(Auth::id());
 
-    	foreach ($friends as $friend) {
-    		foreach ($friend->posts as $post) {
-
-    			array_push($feed, $post);
-
-    		}
-    	}
-
-        foreach (Auth::user()->posts as $post) {
-            array_push($feed, $post);
-        }
-
-        usort($feed, function ($p1, $p2)
-        {
-            return $p1->id > $p2->id;
-        });
-
+        $feed = Post::whereIn('user_id', $friends)
+            ->with('user')
+            ->get();
     	return $feed;
     }
 }

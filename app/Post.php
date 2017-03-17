@@ -10,7 +10,7 @@ class Post extends Model
     protected $fillable = ['content'];
     // Auth::user()->post()->create(['content']);
 
-    public $with = ['user', 'likes'];
+    public $with = ['likes', 'user'];
 
     public function user()
     {
@@ -22,7 +22,7 @@ class Post extends Model
     	return $this->hasMany('App\Like');
     }
 
-     public function getCreatedAtAttribute($value)
+    public function getCreatedAtAttribute($value)
     {
     	return Carbon::parse($value)->diffForHumans();
     }

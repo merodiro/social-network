@@ -80,7 +80,7 @@
 				</div>
 				<div class="panel-body">
 					<ul class="nav nav-pills nav-stacked">
-						@if ($friends)
+						@if ($friends->count())
 							@foreach ($friends as $friend)
 								<li><a href="{{$friend->url}}">
 									<img src="{{$friend->avatar}}" height="40px">
