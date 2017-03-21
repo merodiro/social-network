@@ -6,7 +6,6 @@ use App\Notifications\FriendRequestAccepted;
 use App\Notifications\NewFriendRequest;
 use App\User;
 use Auth;
-use Illuminate\Http\Request;
 
 class FriendshipsController extends Controller
 {
@@ -14,25 +13,25 @@ class FriendshipsController extends Controller
     {
         $friendshipStatus = Auth::user()->checkFriendship($id);
 
-        return ["status" => $friendshipStatus];
+        return ['status' => $friendshipStatus];
     }
 
     public function addFriend($id)
     {
-    	$res = Auth::user()->addFriend($id);
+        $res = Auth::user()->addFriend($id);
 
-    	User::find($id)->notify(new NewFriendRequest(Auth::user()));
+        User::find($id)->notify(new NewFriendRequest(Auth::user()));
 
-    	return $res;
+        return $res;
     }
 
     public function acceptFriend($id)
     {
-    	$res = Auth::user()->acceptFriend($id);
+        $res = Auth::user()->acceptFriend($id);
 
-    	User::find($id)->notify(new FriendRequestAccepted(Auth::user()));
+        User::find($id)->notify(new FriendRequestAccepted(Auth::user()));
 
-    	return $res;
+        return $res;
     }
 
     public function deleteFriend($id)
@@ -41,5 +40,4 @@ class FriendshipsController extends Controller
 
         return $res;
     }
-
 }

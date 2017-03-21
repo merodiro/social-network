@@ -12,25 +12,24 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         factory(App\User::class, 40)->create()->each(
-        	function ($user) {
-	        	$user->profile()->save(
-	        			factory(App\Profile::class)->make()
-	        		);
-	        	$user->posts()->saveMany(
-	        			factory(App\Post::class, rand(1, 15))->make()
-	        		);
-        });
+            function ($user) {
+                $user->profile()->save(
+                        factory(App\Profile::class)->make()
+                    );
+                $user->posts()->saveMany(
+                        factory(App\Post::class, rand(1, 15))->make()
+                    );
+            });
 
         $users = App\User::all();
 
         $users->each(
-        	function ($user)
-        		{
-        			for ($i=0; $i < rand(1, 30); $i++) { 
-	        			$user->add_friend(rand(1, $user->count()));
-	        			$user->accept_friend(rand(1, $user->count()));
-        			}
-        		}	
-    	);
+            function ($user) {
+                for ($i = 0; $i < rand(1, 30); $i++) {
+                    $user->add_friend(rand(1, $user->count()));
+                    $user->accept_friend(rand(1, $user->count()));
+                }
+            }
+        );
     }
 }

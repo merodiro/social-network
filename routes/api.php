@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,29 +16,24 @@ Route::middleware('auth:api')->get('/user', 'UsersController@auth');
 
 Route::post('/search', 'UsersController@search');
 
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::group(['prefix' => 'friend'], function () {
+        Route::get('/add/{id}', 'Friendshipscontroller@addFriend');
 
-Route::group(['middleware' => 'auth:api'], function() {
+        Route::get('/accept/{id}', 'Friendshipscontroller@acceptFriend');
 
-	Route::group(['prefix' => 'friend'], function() {
+        Route::get('/delete/{id}', 'Friendshipscontroller@deleteFriend');
 
-		Route::get('/add/{id}', 'Friendshipscontroller@addFriend');
+        Route::get('/check/{id}', 'Friendshipscontroller@check');
+    });
 
-		Route::get('/accept/{id}', 'Friendshipscontroller@acceptFriend');
+    Route::get('get_unread', 'NotificationsController@unread');
 
-		Route::get('/delete/{id}', 'Friendshipscontroller@deleteFriend');
+    Route::post('/like/{id}', 'LikesController@like');
 
-		Route::get('/check/{id}', 'Friendshipscontroller@check');
+    Route::post('/unlike/{id}', 'LikesController@unlike');
 
-	});
+    Route::get('/feed', 'PostsController@feed');
 
-	Route::get('get_unread', 'NotificationsController@unread');
-
-	Route::post('/like/{id}', 'LikesController@like');
-
-	Route::post('/unlike/{id}', 'LikesController@unlike');
-
-	Route::get('/feed', 'PostsController@feed');
-
-	Route::post('post/create', 'PostsController@store');
-
+    Route::post('post/create', 'PostsController@store');
 });

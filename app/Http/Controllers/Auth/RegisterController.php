@@ -43,23 +43,25 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255|unique:users',
-            'email' => 'required|email|max:255|unique:users',
+            'name'     => 'required|max:255|unique:users',
+            'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
-            'gender' => 'required|bool'
+            'gender'   => 'required|bool',
         ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return User
      */
     protected function create(array $data)
@@ -71,12 +73,12 @@ class RegisterController extends Controller
         }
 
         $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'gender' => $data['gender'],
+            'name'     => $data['name'],
+            'email'    => $data['email'],
+            'gender'   => $data['gender'],
             'password' => bcrypt($data['password']),
-            'slug' => str_slug($data['name']),
-            'avatar' => $avatar
+            'slug'     => str_slug($data['name']),
+            'avatar'   => $avatar,
         ]);
 
         Profile::create(['user_id' => $user->id]);

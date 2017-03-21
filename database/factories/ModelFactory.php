@@ -22,29 +22,27 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     } else {
         $avatar = 'public/defaults/avatars/female.png';
     }
-    
+
     return [
-        'name' => $name,
-        'email' => $faker->unique()->safeEmail,
-        'slug' => str_slug($name),
-        'gender' => $gender,
-        'avatar' => $avatar,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'name'           => $name,
+        'email'          => $faker->unique()->safeEmail,
+        'slug'           => str_slug($name),
+        'gender'         => $gender,
+        'avatar'         => $avatar,
+        'password'       => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
 });
 
 $factory->define(App\Profile::class, function (Faker\Generator $faker) {
-
     return [
         'location' => $faker->city,
-        'about' => $faker->realText(rand(20, 300))
-     ];     
+        'about'    => $faker->realText(rand(20, 300)),
+     ];
 });
 
 $factory->define(App\Post::class, function (Faker\Generator $faker) {
-
     return [
-        'content' => $faker->realText(rand(20, 300))
-     ];     
+        'content' => $faker->realText(rand(20, 300)),
+     ];
 });
