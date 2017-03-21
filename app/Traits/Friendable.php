@@ -47,10 +47,6 @@ trait Friendable
 
 	public function acceptFriend($requester)
 	{
-		if (!$this->hasPendingFriendRequestFrom($requester)) {
-			return 0;
-		}
-
 		$friendship = Friendship::where('requester', $requester)
 			->where('user_requested', $this->id)
 			->first();
@@ -59,6 +55,7 @@ trait Friendable
 			$friendship->update([
 					'status' => 1
 				]);
+
 			return 1;
 		}
 
@@ -71,6 +68,7 @@ trait Friendable
 			->where('user_requested', $userId)
 			->orWhere('requester', $userId)
 			->delete();
+
 		return 1;
 	}
 
@@ -81,6 +79,11 @@ trait Friendable
 			->orWhere('user_requested', $this->id)
 			->where('status', 1)
 			->get(['requester', 'user_requested']);
+
+		if ($friendsIds == []) {
+			return [];
+		}
+
 		$friendsIds = $friendsIds->toArray();
 
 		$friendsIds = collect($friendsIds)->flatten()->unique();
@@ -88,15 +91,20 @@ trait Friendable
 		$friendsIds = $friendsIds->filter(function ($value, $key) {
 		    return $value != $this->id;
 		});
+
 		return $friendsIds;
 	}
 
 	public function friends()
 	{
 		$friendsIds = $this->friendsIds();
-		$friends = User::whereIn('id', $friendsIds)->get();
 
-		return $friends;
+		if ($friendsIds->count()) {
+			$friends = User::whereIn('id', $friendsIds)->get();
+			return $friends;
+		}
+
+		return collect();
 	}
 
 	public function pendingFriendRequestsIds()
@@ -104,6 +112,7 @@ trait Friendable
 		$Ids = Friendship::where('status', 0)
 			->Where('user_requested', $this->id)
 			->get(['requester']);
+
 		$Ids = $Ids->toArray();
 
 		$Ids = collect($Ids)->flatten()->unique();
@@ -114,9 +123,14 @@ trait Friendable
 	public function pendingFriendRequests()
 	{
 		$Ids = $this->pendingFriendRequestsIds();
-		$friendships = User::whereIn('id', $Ids)->get();
 
-		return $friendships;
+		if ($Ids->count()) {
+			$friendships = User::whereIn('id', $Ids)->get();
+			return $friendships;
+		}
+
+		return collect();
+
 	}
 
 	public function pendingFriendRequestsSentIds()
@@ -124,6 +138,7 @@ trait Friendable
 		$Ids = Friendship::where('status', 0)
 			->Where('requester', $this->id)
 			->get(['user_requested']);
+
 		$Ids = $Ids->toArray();
 
 		$Ids = collect($Ids)->flatten()->unique();
@@ -134,9 +149,13 @@ trait Friendable
 	public function pendingFriendRequestsSent()
 	{
 		$Ids = $this->friendsIds();
-		$friendships = User::whereIn('id', $Ids)->get();
 
-		return $friendships;
+		if ($Ids->count()) {
+			$friendships = User::whereIn('id', $Ids)->get();
+			return $friendships;
+		}
+
+		return collect();
 	}
 
 }
