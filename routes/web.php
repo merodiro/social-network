@@ -19,14 +19,14 @@ Auth::routes();
 
 
 Route::group(['middleware' => 'auth'], function() {
-    
+
 	Route::get('/home', 'HomeController@home');
 
     Route::name('profile.edit')->get('/profile/edit', 'profileController@edit');
 
     Route::name('profile.update')->post('/profile/update', 'profileController@update');
 
-	Route::get('/notifications', 'HomeController@notifications');
+	Route::get('/notifications', 'NotificationsController@notifications');
 
 });
 
