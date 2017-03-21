@@ -18,10 +18,11 @@ class PostsController extends Controller
     {
     	$friends = Auth::user()->friends_ids();
 
-        $friends = $friends->merge(Auth::id());
+        $users = $friends->merge(Auth::id());
 
-        $feed = Post::whereIn('user_id', $friends)
+        $feed = Post::whereIn('user_id', $users)
             ->with('user')
+            ->with('likes')
             ->get();
     	return $feed;
     }

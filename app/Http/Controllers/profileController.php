@@ -9,18 +9,17 @@ use Session;
 
 class profileController extends Controller
 {
-    public function index($slug)
+    public function index(User $user)
     {
-    	$user = User::where('slug', $slug)
-            ->with('profile')
-            ->first();
-        $posts = $user->posts()->orderBy('id', 'desc')->get();
+        $user->load(['posts' => function ($query) {
+            $query->orderBy('id', 'desc');
+        }]);
 
         $friends = $user->friends();
+
     	return view('profiles.profile')
-            ->with('posts', $posts)
-            ->with('friends', $friends)
-    		->with('user', $user);
+    		->with('user', $user)
+            ->with('friends', $friends);
     }
 
     public function edit()

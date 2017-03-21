@@ -34,11 +34,11 @@
 			</div>
 
 			@endif
-			
+
 			<div class="panel panel-warning">
 				<div class="panel-heading">
 					<p class="text-center">
-						About me 
+						About me
 					</p>
 				</div>
 				<div class="panel-body">
@@ -54,7 +54,7 @@
 					Posts
 				</div>
 				<div class="panel-body">
-					@foreach ($posts as $post)
+					@foreach ($user->posts as $post)
 						<div class="panel panel-default">
 
 							<div class="panel-body">

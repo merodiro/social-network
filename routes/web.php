@@ -31,5 +31,5 @@ Route::group(['middleware' => 'auth'], function() {
 });
 
 
-Route::get('/profile/{slug}', 'profileController@index')
+Route::get('/profile/{user}', 'profileController@index')
     ->name('profile');

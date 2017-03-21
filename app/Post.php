@@ -8,9 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     protected $fillable = ['content'];
-    // Auth::user()->post()->create(['content']);
-
-    public $with = ['likes', 'user'];
 
     public function user()
     {
