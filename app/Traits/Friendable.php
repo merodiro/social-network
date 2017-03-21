@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Traits;
 
@@ -7,45 +7,47 @@ use App\User;
 
 trait Friendable
 {
-	public function add_friend($user_requested_id)
+	public function addFriend($userId)
 	{
-		if ($this->id === $user_requested_id) {
-			\Log::info('same user');
+		$friendshipStatus = $this->checkFriendship($userId);
+
+		if ($friendshipStatus == 'not friends') {
+			return $friendship = Friendship::create([
+				'requester' => $this->id,
+				'user_requested' => $userId
+			]);
+		} else {
 			return 0;
 		}
+	}
 
-		if ($this->has_pending_friend_request_sent_to($user_requested_id)) {
-			\Log::info('already friends');
-			return "already sent a friend request";
+	public function checkFriendship($userId)
+	{
+		if ($this->id == $userId) {
+			return "same user";
 		}
 
-		if ($this->has_pending_friend_request_from($user_requested_id)) {
-			\Log::info('accept friend');
-			return $this->accept_friend($user_requested_id);
+		$friendship = Friendship::where('requester', $this->id)
+			->where('user_requested', $userId)
+			->orWhere('requester', $userId)
+			->where('user_requested', $this->id)
+			->first();
+
+		if (!$friendship) {
+			return "not friends";
+		} elseif ($friendship->status == 1) {
+			return "friends";
+		} elseif ($friendship->requester == $this->id) {
+			return "waiting";
+		} elseif ($friendship->user_requested == $this->id) {
+			return "pending";
 		}
-
-		if ($this->is_friends_with($user_requested_id)) {
-			\Log::info('already friend');
-			return "already friends";
-		}
-		\Log::info('send friendship');
-
-		$friendship = Friendship::create([
-				'requester' => $this->id,
-				'user_requested' => $user_requested_id
-			]);
-
-		if ($friendship) {
-			return 1;
-		}
-
-		return 0;
 	}
 
 
-	public function accept_friend($requester)
+	public function acceptFriend($requester)
 	{
-		if (!$this->has_pending_friend_request_from($requester)) {
+		if (!$this->hasPendingFriendRequestFrom($requester)) {
 			return 0;
 		}
 
@@ -63,16 +65,16 @@ trait Friendable
 		return 0;
 	}
 
-	public function delete_friend($user_id)
+	public function deleteFriend($userId)
 	{
 		Friendship::where('requester', $this->id)
-			->where('user_requested', $user_id)
-			->orWhere('requester', $user_id)
+			->where('user_requested', $userId)
+			->orWhere('requester', $userId)
 			->delete();
 		return 1;
 	}
 
-	public function friends_ids()
+	public function friendsIds()
 	{
 		$friendsIds = Friendship::where('status', 1)
 			->where('requester', $this->id)
@@ -91,13 +93,13 @@ trait Friendable
 
 	public function friends()
 	{
-		$friendsIds = $this->friends_ids();
+		$friendsIds = $this->friendsIds();
 		$friends = User::whereIn('id', $friendsIds)->get();
 
 		return $friends;
 	}
 
-	public function pending_friend_requests_ids()
+	public function pendingFriendRequestsIds()
 	{
 		$Ids = Friendship::where('status', 0)
 			->Where('user_requested', $this->id)
@@ -109,15 +111,15 @@ trait Friendable
 		return $Ids;
 	}
 
-	public function pending_friend_requests()
+	public function pendingFriendRequests()
 	{
-		$Ids = $this->pending_friend_requests_ids();
+		$Ids = $this->pendingFriendRequestsIds();
 		$friendships = User::whereIn('id', $Ids)->get();
 
 		return $friendships;
 	}
 
-	public function pending_friend_requests_sent_ids()
+	public function pendingFriendRequestsSentIds()
 	{
 		$Ids = Friendship::where('status', 0)
 			->Where('requester', $this->id)
@@ -129,31 +131,12 @@ trait Friendable
 		return $Ids;
 	}
 
-	public function pending_friend_requests_sent()
+	public function pendingFriendRequestsSent()
 	{
-		$Ids = $this->friends_ids();
+		$Ids = $this->friendsIds();
 		$friendships = User::whereIn('id', $Ids)->get();
 
 		return $friendships;
-	}
-
-	public function is_friends_with($user_id)
-	{
-		return $this->friends_ids()
-			->contains($user_id);
-	}
-
-	public function has_pending_friend_request_from($user_id)
-	{
-		return $this->pending_friend_requests_ids()
-			->contains($user_id);
-		
-	}
-
-	public function has_pending_friend_request_sent_to($user_id)
-	{
-		return $this->pending_friend_requests_sent_ids()
-			->contains($user_id);
 	}
 
 }

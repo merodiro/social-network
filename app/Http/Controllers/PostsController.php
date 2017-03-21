@@ -16,7 +16,7 @@ class PostsController extends Controller
 
     public function feed()
     {
-    	$friends = Auth::user()->friends_ids();
+    	$friends = Auth::user()->friendsIds();
 
         $users = $friends->merge(Auth::id());
 

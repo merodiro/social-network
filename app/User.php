@@ -31,14 +31,15 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function profile()
-    {
-        return $this->hasOne('App\Profile');
-    }
-
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+
+    public function profile()
+    {
+        return $this->hasOne('App\Profile');
     }
 
     public function posts()

@@ -13,7 +13,7 @@ class NotificationsController extends Controller
         return view('nots')->with('nots', Auth::user()->notifications);
     }
 
-    public function unread_notifications()
+    public function unread()
     {
         return Auth::user()->unreadNotifications;
     }

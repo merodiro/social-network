@@ -13,10 +13,10 @@
 
 Route::get('/', 'HomeController@index');
 
-
-
 Auth::routes();
 
+Route::get('/profile/{user}', 'profileController@index')
+    ->name('profile');
 
 Route::group(['middleware' => 'auth'], function() {
 
@@ -29,7 +29,3 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/notifications', 'NotificationsController@notifications');
 
 });
-
-
-Route::get('/profile/{user}', 'profileController@index')
-    ->name('profile');

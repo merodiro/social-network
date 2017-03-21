@@ -22,17 +22,17 @@ Route::group(['middleware' => 'auth:api'], function() {
 
 	Route::group(['prefix' => 'friend'], function() {
 
-		Route::get('/add/{id}', 'Friendshipscontroller@add_friend');
+		Route::get('/add/{id}', 'Friendshipscontroller@addFriend');
 
-		Route::get('/accept/{id}', 'Friendshipscontroller@accept_friend');
+		Route::get('/accept/{id}', 'Friendshipscontroller@acceptFriend');
 
-		Route::get('/delete/{id}', 'Friendshipscontroller@delete_friend');
+		Route::get('/delete/{id}', 'Friendshipscontroller@deleteFriend');
 
 		Route::get('/check/{id}', 'Friendshipscontroller@check');
 
 	});
 
-	Route::get('get_unread', 'NotificationsController@unread_notifications');
+	Route::get('get_unread', 'NotificationsController@unread');
 
 	Route::post('/like/{id}', 'LikesController@like');
 

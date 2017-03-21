@@ -12,42 +12,32 @@ class FriendshipsController extends Controller
 {
     public function check($id)
     {
-    	if (Auth::user()->is_friends_with($id)) {
-    		return ["status" => "friends"];
-    	}
+        $friendshipStatus = Auth::user()->checkFriendship($id);
 
-    	if (Auth::user()->has_pending_friend_request_from($id)) {
-    		return ["status" => "pending"];
-    	}
-
-    	if (Auth::user()->has_pending_friend_request_sent_to($id)) {
-    		return ["status" => "waiting"];
-    	}
-
-    	return ["status" => 0];
+        return ["status" => $friendshipStatus];
     }
 
-    public function add_friend($id)
+    public function addFriend($id)
     {
-    	$res = Auth::user()->add_friend($id);
+    	$res = Auth::user()->addFriend($id);
 
     	User::find($id)->notify(new NewFriendRequest(Auth::user()));
 
     	return $res;
     }
 
-    public function accept_friend($id)
+    public function acceptFriend($id)
     {
-    	$res = Auth::user()->accept_friend($id);
+    	$res = Auth::user()->acceptFriend($id);
 
     	User::find($id)->notify(new FriendRequestAccepted(Auth::user()));
 
     	return $res;
     }
 
-    public function delete_friend($id)
+    public function deleteFriend($id)
     {
-        $res = Auth::user()->delete_friend($id);
+        $res = Auth::user()->deleteFriend($id);
 
         return $res;
     }
