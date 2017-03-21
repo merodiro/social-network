@@ -5,8 +5,8 @@ namespace App;
 use App\Traits\Friendable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Scout\Searchable;
 use Laravel\Passport\HasApiTokens;
+use Laravel\Scout\Searchable;
 use Storage;
 
 class User extends Authenticatable
@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'slug', 'gender', 'avatar'
+        'name', 'email', 'password', 'slug', 'gender', 'avatar',
     ];
 
     /**
@@ -35,7 +35,6 @@ class User extends Authenticatable
     {
         return 'slug';
     }
-
 
     public function profile()
     {

@@ -11,16 +11,16 @@ class Post extends Model
 
     public function user()
     {
-    	return $this->belongsTO('App\User');
+        return $this->belongsTO('App\User');
     }
 
     public function likes()
     {
-    	return $this->hasMany('App\Like');
+        return $this->hasMany('App\Like');
     }
 
     public function getCreatedAtAttribute($value)
     {
-    	return Carbon::parse($value)->diffForHumans();
+        return Carbon::parse($value)->diffForHumans();
     }
 }

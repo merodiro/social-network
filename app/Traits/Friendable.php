@@ -7,155 +7,155 @@ use App\User;
 
 trait Friendable
 {
-	public function addFriend($userId)
-	{
-		$friendshipStatus = $this->checkFriendship($userId);
+    public function addFriend($userId)
+    {
+        $friendshipStatus = $this->checkFriendship($userId);
 
-		if ($friendshipStatus == 'not friends') {
-			return $friendship = Friendship::create([
-				'requester' => $this->id,
-				'user_requested' => $userId
-			]);
-		} else {
-			return 0;
-		}
-	}
+        if ($friendshipStatus == 'not friends') {
+            return $friendship = Friendship::create([
+                'requester'      => $this->id,
+                'user_requested' => $userId,
+            ]);
+        } else {
+            return 0;
+        }
+    }
 
-	public function checkFriendship($userId)
-	{
-		if ($this->id == $userId) {
-			return "same user";
-		}
+    public function checkFriendship($userId)
+    {
+        if ($this->id == $userId) {
+            return 'same user';
+        }
 
-		$friendship = Friendship::where('requester', $this->id)
-			->where('user_requested', $userId)
-			->orWhere('requester', $userId)
-			->where('user_requested', $this->id)
-			->first();
+        $friendship = Friendship::where('requester', $this->id)
+            ->where('user_requested', $userId)
+            ->orWhere('requester', $userId)
+            ->where('user_requested', $this->id)
+            ->first();
 
-		if (!$friendship) {
-			return "not friends";
-		} elseif ($friendship->status == 1) {
-			return "friends";
-		} elseif ($friendship->requester == $this->id) {
-			return "waiting";
-		} elseif ($friendship->user_requested == $this->id) {
-			return "pending";
-		}
-	}
+        if (!$friendship) {
+            return 'not friends';
+        } elseif ($friendship->status == 1) {
+            return 'friends';
+        } elseif ($friendship->requester == $this->id) {
+            return 'waiting';
+        } elseif ($friendship->user_requested == $this->id) {
+            return 'pending';
+        }
+    }
 
+    public function acceptFriend($requester)
+    {
+        $friendship = Friendship::where('requester', $requester)
+            ->where('user_requested', $this->id)
+            ->first();
 
-	public function acceptFriend($requester)
-	{
-		$friendship = Friendship::where('requester', $requester)
-			->where('user_requested', $this->id)
-			->first();
+        if ($friendship) {
+            $friendship->update([
+                    'status' => 1,
+                ]);
 
-		if ($friendship) {
-			$friendship->update([
-					'status' => 1
-				]);
+            return 1;
+        }
 
-			return 1;
-		}
+        return 0;
+    }
 
-		return 0;
-	}
+    public function deleteFriend($userId)
+    {
+        Friendship::where('requester', $this->id)
+            ->where('user_requested', $userId)
+            ->orWhere('requester', $userId)
+            ->delete();
 
-	public function deleteFriend($userId)
-	{
-		Friendship::where('requester', $this->id)
-			->where('user_requested', $userId)
-			->orWhere('requester', $userId)
-			->delete();
+        return 1;
+    }
 
-		return 1;
-	}
+    public function friendsIds()
+    {
+        $friendsIds = Friendship::where('status', 1)
+            ->where('requester', $this->id)
+            ->orWhere('user_requested', $this->id)
+            ->where('status', 1)
+            ->get(['requester', 'user_requested']);
 
-	public function friendsIds()
-	{
-		$friendsIds = Friendship::where('status', 1)
-			->where('requester', $this->id)
-			->orWhere('user_requested', $this->id)
-			->where('status', 1)
-			->get(['requester', 'user_requested']);
+        if ($friendsIds == []) {
+            return [];
+        }
 
-		if ($friendsIds == []) {
-			return [];
-		}
+        $friendsIds = $friendsIds->toArray();
 
-		$friendsIds = $friendsIds->toArray();
+        $friendsIds = collect($friendsIds)->flatten()->unique();
 
-		$friendsIds = collect($friendsIds)->flatten()->unique();
+        $friendsIds = $friendsIds->filter(function ($value, $key) {
+            return $value != $this->id;
+        });
 
-		$friendsIds = $friendsIds->filter(function ($value, $key) {
-		    return $value != $this->id;
-		});
+        return $friendsIds;
+    }
 
-		return $friendsIds;
-	}
+    public function friends()
+    {
+        $friendsIds = $this->friendsIds();
 
-	public function friends()
-	{
-		$friendsIds = $this->friendsIds();
+        if ($friendsIds->count()) {
+            $friends = User::whereIn('id', $friendsIds)->get();
 
-		if ($friendsIds->count()) {
-			$friends = User::whereIn('id', $friendsIds)->get();
-			return $friends;
-		}
+            return $friends;
+        }
 
-		return collect();
-	}
+        return collect();
+    }
 
-	public function pendingFriendRequestsIds()
-	{
-		$Ids = Friendship::where('status', 0)
-			->Where('user_requested', $this->id)
-			->get(['requester']);
+    public function pendingFriendRequestsIds()
+    {
+        $Ids = Friendship::where('status', 0)
+            ->Where('user_requested', $this->id)
+            ->get(['requester']);
 
-		$Ids = $Ids->toArray();
+        $Ids = $Ids->toArray();
 
-		$Ids = collect($Ids)->flatten()->unique();
+        $Ids = collect($Ids)->flatten()->unique();
 
-		return $Ids;
-	}
+        return $Ids;
+    }
 
-	public function pendingFriendRequests()
-	{
-		$Ids = $this->pendingFriendRequestsIds();
+    public function pendingFriendRequests()
+    {
+        $Ids = $this->pendingFriendRequestsIds();
 
-		if ($Ids->count()) {
-			$friendships = User::whereIn('id', $Ids)->get();
-			return $friendships;
-		}
+        if ($Ids->count()) {
+            $friendships = User::whereIn('id', $Ids)->get();
 
-		return collect();
+            return $friendships;
+        }
 
-	}
+        return collect();
+    }
 
-	public function pendingFriendRequestsSentIds()
-	{
-		$Ids = Friendship::where('status', 0)
-			->Where('requester', $this->id)
-			->get(['user_requested']);
+    public function pendingFriendRequestsSentIds()
+    {
+        $Ids = Friendship::where('status', 0)
+            ->Where('requester', $this->id)
+            ->get(['user_requested']);
 
-		$Ids = $Ids->toArray();
+        $Ids = $Ids->toArray();
 
-		$Ids = collect($Ids)->flatten()->unique();
+        $Ids = collect($Ids)->flatten()->unique();
 
-		return $Ids;
-	}
+        return $Ids;
+    }
 
-	public function pendingFriendRequestsSent()
-	{
-		$Ids = $this->friendsIds();
+    public function pendingFriendRequestsSent()
+    {
+        $Ids = $this->friendsIds();
 
-		if ($Ids->count()) {
-			$friendships = User::whereIn('id', $Ids)->get();
-			return $friendships;
-		}
+        if ($Ids->count()) {
+            $friendships = User::whereIn('id', $Ids)->get();
 
-		return collect();
-	}
+            return $friendships;
+        }
 
+        return collect();
+    }
 }
