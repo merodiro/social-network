@@ -13,7 +13,7 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
- 
+
 import { store }  from './store'
 
 Vue.component('friend', require('./components/Friend.vue'));

@@ -26,8 +26,8 @@ class UsersTableSeeder extends Seeder
         $users->each(
             function ($user) {
                 for ($i = 0; $i < rand(1, 30); $i++) {
-                    $user->add_friend(rand(1, $user->count()));
-                    $user->accept_friend(rand(1, $user->count()));
+                    $user->addFriend(rand(1, $user->count()));
+                    $user->acceptFriend(rand(1, $user->count()));
                 }
             }
         );
