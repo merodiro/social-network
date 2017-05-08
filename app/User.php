@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Traits\Friendable;
+use Merodiro\Friendships\Friendable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
