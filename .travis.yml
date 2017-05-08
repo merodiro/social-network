@@ -7,18 +7,11 @@ php:
   - hhvm
 
 before_script:
-  - mkdir bootstrap/cache
-  - mkdir storage
-  - mkdir storage/app
-  - mkdir storage/framework
-  - mkdir storage/framework/sessions
-  - mkdir storage/framework/cache
-  - mkdir storage/framework/views
   - chmod 777 -R storage
   - cp .env.travis .env
-  - mysql -e 'create database homestead_test;'
+  - mysql -e 'create database social_network;'
   - composer self-update
-  - composer install --no-interaction
+  - composer install --no-interaction --dev --prefer-source
   - php artisan key:generate
 
 
@@ -26,7 +19,6 @@ matrix:
   allow_failures:
     - php: 5.6
     - php: hhvm
-  fast_finish: true
 
 
 script:
