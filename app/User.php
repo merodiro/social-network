@@ -55,5 +55,4 @@ class User extends Authenticatable
     {
         return route('profile', ['slug' => $this->slug]);
     }
-
 }
