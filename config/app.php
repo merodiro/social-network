@@ -171,6 +171,8 @@ return [
         TeamTNT\Scout\TNTSearchScoutServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+
+        Merodiro\Friendships\FriendshipsServiceProvider::class,
         /*
          * Application Service Providers...
          */
