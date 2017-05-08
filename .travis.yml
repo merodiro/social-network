@@ -11,8 +11,9 @@ before_script:
   - cp .env.travis .env
   - mysql -e 'create database social_network;'
   - composer self-update
-  - composer install --no-interaction --dev --prefer-source
+  - composer install --no-interaction --prefer-source
   - php artisan key:generate
+  - php artisan migrate
 
 
 matrix:
@@ -20,6 +21,12 @@ matrix:
     - php: 5.6
     - php: hhvm
 
+services:
+  - mysql
+
+cache:
+  directories:
+    - vendor
 
 script:
   - vendor/bin/phpunit

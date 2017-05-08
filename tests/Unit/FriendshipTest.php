@@ -2,12 +2,12 @@
 
 namespace Tests\Unit;
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
 class FriendshipTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     /** @test */
     public function user_can_send_a_friend_request()
