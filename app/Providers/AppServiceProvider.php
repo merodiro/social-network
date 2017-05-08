@@ -17,6 +17,8 @@ class AppServiceProvider extends ServiceProvider
         //     \Log::info($query->sql);
         // });
 
+        Schema::defaultStringLength(191);
+
     }
 
     /**
