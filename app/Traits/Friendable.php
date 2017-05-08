@@ -17,6 +17,7 @@ trait Friendable
                 'user_requested' => $user->id,
             ]);
         }
+
         return 0;
     }
 
@@ -44,11 +45,11 @@ trait Friendable
     {
         $friendshipStatus = $this->checkFriendship($user);
 
-        if ($friendshipStatus == 'pending') {        
+        if ($friendshipStatus == 'pending') {
             return $friendship = Friendship::betweenModels($this, $user)
                 ->update([
                         'status' => 1,
-                    ]);;
+                    ]);
         }
     }
 
@@ -60,20 +61,19 @@ trait Friendable
         return 1;
     }
 
-
     public function friends()
     {
-
         $recipients = Friendship::whereSender($this)->accepted(1)->pluck('user_requested')->all();
-        $senders    = Friendship::whereRecipient($this)->accepted(1)->pluck('requester')->all();
+        $senders = Friendship::whereRecipient($this)->accepted(1)->pluck('requester')->all();
 
         $friendsIds = array_merge($recipients, $senders);
+
         return User::whereIn('id', $friendsIds)->get();
     }
 
     public function friendRequestFrom()
     {
-        $senders = Friendship::whereRecipient($this)->accepted(0)->pluck('requester')->all();       
+        $senders = Friendship::whereRecipient($this)->accepted(0)->pluck('requester')->all();
 
         return User::whereIn('id', $senders)->get();
     }
