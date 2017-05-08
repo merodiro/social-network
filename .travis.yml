@@ -8,7 +8,7 @@ php:
 
 before_script:
   - chmod 777 -R storage
-  - cp .env.travis .env
+  - cp .env.testing .env
   - mysql -e 'create database social_network;'
   - composer self-update
   - composer install --no-interaction --prefer-source
