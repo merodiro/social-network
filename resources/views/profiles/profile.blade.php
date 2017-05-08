@@ -25,11 +25,11 @@
 				</div>
 			</div>
 
-			@if (Auth::id() != $user->id && Auth::check())
+			@if (Auth::check() && Auth::id() != $user->id)
 
 			<div class="panel panel-default">
 				<div class="body">
-					<friend :profile_user_id="{{ $user->id }}"/>
+					<friend profile_user_slug="{{ $user->slug }}"/>
 				</div>
 			</div>
 

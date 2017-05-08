@@ -9,34 +9,34 @@ use Auth;
 
 class FriendshipsController extends Controller
 {
-    public function check($id)
+    public function check(User $user)
     {
-        $friendshipStatus = Auth::user()->checkFriendship($id);
+        $friendshipStatus = Auth::user()->checkFriendship($user);
 
         return ['status' => $friendshipStatus];
     }
 
-    public function addFriend($id)
+    public function addFriend(User $user)
     {
-        $res = Auth::user()->addFriend($id);
+        $res = Auth::user()->addFriend($user);
 
-        User::find($id)->notify(new NewFriendRequest(Auth::user()));
+        $user->notify(new NewFriendRequest(Auth::user()));
 
         return $res;
     }
 
-    public function acceptFriend($id)
+    public function acceptFriend(User $user)
     {
-        $res = Auth::user()->acceptFriend($id);
+        $res = Auth::user()->acceptFriend($user);
 
-        User::find($id)->notify(new FriendRequestAccepted(Auth::user()));
+        $user->notify(new FriendRequestAccepted(Auth::user()));
 
         return $res;
     }
 
-    public function deleteFriend($id)
+    public function deleteFriend(User $user)
     {
-        $res = Auth::user()->deleteFriend($id);
+        $res = Auth::user()->deleteFriend($user);
 
         return $res;
     }

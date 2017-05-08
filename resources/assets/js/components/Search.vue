@@ -43,7 +43,6 @@
             search: _.debounce(
                 function function_name(argument) {
                     if (_.trim(this.query) != '') {
-                        console.log(_.trim(this.query))
                         axios.post('/api/search', {query: this.query})
                         .then(res => {
                             this.results = res.data

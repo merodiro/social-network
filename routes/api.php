@@ -18,13 +18,13 @@ Route::post('/search', 'UsersController@search');
 
 Route::group(['middleware' => 'auth:api'], function () {
     Route::group(['prefix' => 'friend'], function () {
-        Route::get('/add/{id}', 'Friendshipscontroller@addFriend');
+        Route::get('/add/{user}', 'Friendshipscontroller@addFriend');
 
-        Route::get('/accept/{id}', 'Friendshipscontroller@acceptFriend');
+        Route::get('/accept/{user}', 'Friendshipscontroller@acceptFriend');
 
-        Route::get('/delete/{id}', 'Friendshipscontroller@deleteFriend');
+        Route::get('/delete/{user}', 'Friendshipscontroller@deleteFriend');
 
-        Route::get('/check/{id}', 'Friendshipscontroller@check');
+        Route::get('/check/{user}', 'Friendshipscontroller@check');
     });
 
     Route::get('get_unread', 'NotificationsController@unread');

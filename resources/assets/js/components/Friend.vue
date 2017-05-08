@@ -15,13 +15,13 @@
 <script>
     export default {
         mounted() {
-            axios.get('/api/friend/check/' + this.profile_user_id)
+            axios.get('/api/friend/check/' + this.profile_user_slug)
                 .then(res => {
                     this.status = res.data.status
                     this.loading = false
                 })
         },
-        props: ['profile_user_id'],
+        props: ['profile_user_slug'],
         data() {
             return {
                 status: '',
@@ -31,7 +31,7 @@
         methods: {
             add_friend() {
                 this.loading = true
-                axios.get('/api/friend/add/'+ this.profile_user_id)
+                axios.get('/api/friend/add/'+ this.profile_user_slug)
                     .then(res => {
                         if (res.data) {
                             this.status ="waiting"
@@ -44,7 +44,7 @@
             },
             accept_friend() {
                 this.loading = true
-                axios.get('/api/friend/accept/'+ this.profile_user_id)
+                axios.get('/api/friend/accept/'+ this.profile_user_slug)
                     .then(res => {
                         if (res.data) {
                             this.status ="friends"
@@ -57,7 +57,7 @@
             },
             delete_friend() {
                 this.loading = true
-                axios.get('/api/friend/delete/' + this.profile_user_id)
+                axios.get('/api/friend/delete/' + this.profile_user_slug)
                     .then(res => {
                         if (res.data) {
                             this.status = 'not friends'
