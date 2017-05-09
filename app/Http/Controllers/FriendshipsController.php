@@ -11,6 +11,7 @@ class FriendshipsController extends Controller
     {
         $friendshipStatus = Auth::user()
             ->checkFriendship($user);
+
         return ['status' => $friendshipStatus];
     }
 
@@ -18,6 +19,7 @@ class FriendshipsController extends Controller
     {
         $res = Auth::user()
             ->addFriend($user);
+
         return $res;
     }
 
@@ -25,6 +27,7 @@ class FriendshipsController extends Controller
     {
         $res = Auth::user()
             ->acceptFriend($user);
+
         return $res;
     }
 
@@ -32,6 +35,7 @@ class FriendshipsController extends Controller
     {
         $res = Auth::user()
             ->deleteFriend($user);
+
         return $res;
     }
 }
