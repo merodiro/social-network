@@ -3,8 +3,9 @@
 namespace Tests;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Tests\TestCase;
 
-class FriendshipsTest extends TestCase
+class FriendshipTest extends TestCase
 {
     use DatabaseMigrations;
 
@@ -85,7 +86,7 @@ class FriendshipsTest extends TestCase
     {
         $user = createUser();
         $user->addFriend($user);
-
+        
         $this->assertCount(0, $user->friendRequestFrom());
         $this->assertCount(0, $user->friendRequestTo());
     }
