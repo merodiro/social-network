@@ -1,7 +1,6 @@
 <?php
-
-return [
-    'providers' => append_config([
-        'Merodiro\Friendships\FriendshipsServiceProvider',
-    ]),
-];
+return array(
+    'providers' => append_config(array(
+        'Merodiro\Friendships\FriendshipsServiceProvider'
+    )),
+);
