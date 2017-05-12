@@ -30,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
     {
         if (config('app.debug')) {
             $this->app->register('VIACreative\SudoSu\ServiceProvider');
+            $this->app->register('JeroenG\Packager\PackagerServiceProvider');
         }
     }
 }

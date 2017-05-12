@@ -19,6 +19,8 @@ class CreateLikesTable extends Migration
             $table->unsignedInteger('post_id');
             $table->timestamps();
 
+            $table->unique(['post_id', 'user_id']);
+
             $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onUpdate('cascade')

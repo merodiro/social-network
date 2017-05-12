@@ -17,8 +17,8 @@ class FriendshipTest extends TestCase
 
         $sender->addFriend($recipient);
 
-        $this->assertCount(1, $recipient->friendRequestFrom());
-        $this->assertCount(1, $sender->friendRequestTo());
+        $this->assertCount(1, $recipient->friendRequestsTo());
+        $this->assertCount(1, $sender->friendRequestsFrom());
     }
 
     /** @test */
@@ -31,7 +31,7 @@ class FriendshipTest extends TestCase
         $sender->addFriend($recipient);
         $sender->addFriend($recipient);
 
-        $this->assertCount(1, $recipient->friendRequestFrom());
+        $this->assertCount(1, $recipient->friendRequestsTo());
     }
 
     /** @test */
@@ -43,10 +43,10 @@ class FriendshipTest extends TestCase
         $sender->addFriend($recipient);
 
         $recipient->deleteFriend($sender);
-        $this->assertCount(0, $recipient->friendRequestFrom());
+        $this->assertCount(0, $recipient->friendRequestsTo());
 
         $sender->addFriend($recipient);
-        $this->assertCount(1, $recipient->friendRequestFrom());
+        $this->assertCount(1, $recipient->friendRequestsTo());
     }
 
     /** @test */
@@ -57,10 +57,10 @@ class FriendshipTest extends TestCase
 
         $sender->addFriend($recipient);
         $sender->deleteFriend($recipient);
-        $this->assertCount(0, $recipient->friendRequestFrom());
+        $this->assertCount(0, $recipient->friendRequestsTo());
 
         $sender->addFriend($recipient);
-        $this->assertCount(1, $recipient->friendRequestFrom());
+        $this->assertCount(1, $recipient->friendRequestsTo());
 
         $recipient->acceptfriend($sender);
         $this->assertEquals('friends', $recipient->checkFriendship($sender));
@@ -103,8 +103,8 @@ class FriendshipTest extends TestCase
         $sender->addFriend($recipient);
         $recipient->acceptFriend($sender);
 
-        $this->assertCount(0, $recipient->friendRequestFrom());
-        $this->assertCount(0, $sender->friendRequestTo());
+        $this->assertCount(0, $recipient->friendRequestsTo());
+        $this->assertCount(0, $sender->friendRequestsFrom());
     }
 
     /** @test */
@@ -171,22 +171,48 @@ class FriendshipTest extends TestCase
 
         $recipients[0]->acceptFriend($sender);
 
-        $this->assertCount(2, $sender->friendRequestTo());
-        $this->containsOnlyInstancesOf(\App\User::class, $sender->friendRequestTo());
+        $this->assertCount(2, $sender->friendRequestsFrom());
+        $this->containsOnlyInstancesOf(\App\User::class, $sender->friendRequestsFrom());
     }
 
+    /** @test */
     public function it_returns_friend_requests_from()
     {
         $recipient = factory('App\User')->create();
         $senders = factory('App\User', 3)->create();
 
         foreach ($senders as $sender) {
-            $sender->addFriend($sender);
+            $sender->addFriend($recipient);
         }
 
         $recipient->acceptFriend($senders[0]);
 
-        $this->assertCount(2, $sender->friendRequestFrom());
-        $this->containsOnlyInstancesOf(\App\User::class, $sender->friendRequestFrom());
+        $this->assertCount(2, $recipient->friendRequestsTo());
+        $this->containsOnlyInstancesOf(\App\User::class, $sender->friendRequestsTo());
+    }
+
+    /** @test */
+    public function it_sends_an_email_when_user_adds_friend()
+    {
+        $sender = factory('App\User')->create();
+        $recipient = factory('App\User')->create();
+        $sender->addFriend($recipient);
+
+        $this->seeMessageFor($recipient->email);
+        $this->seeMessageWithSubject('New Friend Request');
+        $this->assertTrue($this->lastMessage()->contains($sender->name));
+    }
+
+    /** @test */
+    public function it_sends_an_email_when_user_accepts_friend()
+    {
+        $sender = factory('App\User')->create();
+        $recipient = factory('App\User')->create();
+        $sender->addFriend($recipient);
+        $recipient->acceptFriend($sender);
+
+        $this->seeMessageFor($sender->email);
+        $this->seeMessageWithSubject('Friend Request Accepted');
+        $this->assertTrue($this->lastMessage()->contains($recipient->name));
     }
 }
