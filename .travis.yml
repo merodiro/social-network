@@ -4,18 +4,8 @@ php:
   - 7.1
 
 before_script:
-  - chmod 777 -R storage
-  - cp .env.testing .env
-  - mysql -e 'create database social_network;'
   - composer self-update
   - composer install --no-interaction --prefer-source
-  - php artisan key:generate
-  - php artisan migrate
-
-
-
-services:
-  - mysql
 
 cache:
   directories:

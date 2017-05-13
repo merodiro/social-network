@@ -2,12 +2,12 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
 class FriendshipTest extends TestCase
 {
-    use DatabaseTransactions;
+    use DatabaseMigrations;
 
     /** @test */
     public function user_can_send_a_friend_request()
@@ -189,30 +189,5 @@ class FriendshipTest extends TestCase
 
         $this->assertCount(2, $recipient->friendRequestsTo());
         $this->containsOnlyInstancesOf(\App\User::class, $sender->friendRequestsTo());
-    }
-
-    /** @test */
-    public function it_sends_an_email_when_user_adds_friend()
-    {
-        $sender = factory('App\User')->create();
-        $recipient = factory('App\User')->create();
-        $sender->addFriend($recipient);
-
-        $this->seeMessageFor($recipient->email);
-        $this->seeMessageWithSubject('New Friend Request');
-        $this->assertTrue($this->lastMessage()->contains($sender->name));
-    }
-
-    /** @test */
-    public function it_sends_an_email_when_user_accepts_friend()
-    {
-        $sender = factory('App\User')->create();
-        $recipient = factory('App\User')->create();
-        $sender->addFriend($recipient);
-        $recipient->acceptFriend($sender);
-
-        $this->seeMessageFor($sender->email);
-        $this->seeMessageWithSubject('Friend Request Accepted');
-        $this->assertTrue($this->lastMessage()->contains($recipient->name));
     }
 }
