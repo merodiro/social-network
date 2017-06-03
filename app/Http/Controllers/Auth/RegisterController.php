@@ -81,8 +81,6 @@ class RegisterController extends Controller
             'avatar'   => $avatar,
         ]);
 
-        Profile::create(['user_id' => $user->id]);
-
         return $user;
     }
 }

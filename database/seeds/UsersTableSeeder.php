@@ -16,8 +16,8 @@ class UsersTableSeeder extends Seeder
     {
         factory(User::class, 40)->create()->each(
             function ($user) {
-                $user->profile()->save(
-                        factory(Profile::class)->make()
+                $user->profile()->update(
+                        factory(Profile::class)->make()->toArray()
                     );
                 $user->posts()->saveMany(
                         factory(Post::class, rand(1, 15))->make()

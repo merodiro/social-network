@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Events\UserCreated;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
@@ -20,6 +21,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password', 'slug', 'gender', 'avatar',
+    ];
+
+    protected $events = [
+        'created' => UserCreated::class,
     ];
 
     /**

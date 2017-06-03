@@ -4,10 +4,10 @@
             Loading...
         </p>
         <p class="text-center" v-if="!loading">
-            <button class="btn btn-success" v-if="status == 'not friends'" @click="add_friend">Add Friend</button>
-            <button class="btn btn-success" v-if="status == 'pending'" @click="accept_friend">Accept Friend</button>
-            <button class="btn btn-danger" v-if="status == 'waiting'" @click="delete_friend()">Cancel friend request</button>
-            <button class="btn btn-danger" v-if="status == 'friends'" @click="delete_friend()">Unfriend</button>
+            <button id="add-friend" class="btn btn-success" v-if="status == 'not friends'" @click="add_friend">Add Friend</button>
+            <button id="accept-friend" class="btn btn-success" v-if="status == 'pending'" @click="accept_friend">Accept Friend</button>
+            <button id="cancel-friend" class="btn btn-danger" v-if="status == 'waiting'" @click="delete_friend()">Cancel friend request</button>
+            <button id="delete-friend" class="btn btn-danger" v-if="status == 'friends'" @click="delete_friend()">Unfriend</button>
         </p>
     </div>
 </template>
@@ -36,7 +36,7 @@
                         if (res.data) {
                             this.status ="waiting"
                             noty({
-                                text: 'Friend request sent sent'
+                                text: 'Friend request sent'
                             })
                             this.loading = false
                         }

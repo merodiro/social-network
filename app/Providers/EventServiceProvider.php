@@ -12,11 +12,11 @@ class EventServiceProvider extends ServiceProvider
       *
       * @var array
       */
-    // protected $listen = [
-    //     'friendrequest.sent' => [
-    //         'App\Listeners\FriendRequestSent',
-    //     ],
-    // ];
+    protected $listen = [
+        'App\Events\UserCreated' => [
+            'App\Listeners\CreateProfile',
+        ],
+    ];
 
      protected $subscribe = [
         'App\Listeners\FriendshipsSubscriber',
