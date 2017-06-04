@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\User;
 use App\Notifications\FriendRequestAccepted;
 use App\Notifications\NewFriendRequest;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -11,12 +12,12 @@ class FriendshipsSubscriber implements ShouldQueue
 {
     use InteractsWithQueue;
 
-    public function onFriendRequestSent($sender, $recipient)
+    public function onFriendRequestSent(User $sender, User $recipient)
     {
         $recipient->notify(new NewFriendRequest($sender));
     }
 
-    public function onFriendRequestAccepted($recipient, $sender)
+    public function onFriendRequestAccepted(User $recipient, User $sender)
     {
         $sender->notify(new FriendRequestAccepted($recipient));
     }

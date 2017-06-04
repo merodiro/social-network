@@ -13,12 +13,6 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
-    <!-- Scripts -->
-    <script>
-        window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-        ]) !!};
-    </script>
 </head>
 <body>
     <div id="app">
@@ -102,9 +96,7 @@
     <script src="{{ mix('js/app.js') }}"></script>
     <script>
         @if (Session::has('success'))
-            noty({
-                text: '{{ Session::get('success') }}'
-            });
+            noty('{{ Session::get('success') }}');
         @endif
     </script>
 </body>

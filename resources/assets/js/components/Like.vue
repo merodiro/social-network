@@ -4,9 +4,7 @@
             <span class="text-info pull-right" v-if="post.likes.length>1">{{post.likes.length}} people like this post</span>
             <span class="text-info pull-right" v-if="post.likes.length==1">{{post.likes.length}} person like this post</span>
             <span class="text-info pull-right" v-if="post.likes.length==0">Be the first one to like this post</span>
-            <!-- <img v-for="like in post.likes" :src="like.user.avatar" class="avatar-like pull-right"> -->
         </div>
-        <!-- <hr v-if="post.likes.length > 0"> -->
         <button class="btn btn-primary" v-if="!auth_user_likes_post" @click="like()">
             Like this post
         </button>
@@ -18,15 +16,7 @@
 
 <script>
     export default {
-        mounted() {
-           
-        },
         props: ['id'],
-        data () {
-            return {
-
-            }
-        },
         computed: {
             auth_user_likes_post () {
                 let check_index = this.likers.indexOf(this.$store.state.auth_user.id)
@@ -59,10 +49,7 @@
                             id: this.id,
                             like: res.data
                         })
-
-                        noty({
-                            text: 'Your successfully like the post'
-                        })
+                        noty('Your successfully like the post')
                     })
             },
             unlike() {
@@ -72,10 +59,7 @@
                             post_id: this.id,
                             like_id: res.data
                         })
-
-                        noty({
-                            text: 'Your successfully unlike the post'
-                        })
+                        noty('Your successfully unlike the post')
                     })
             }
         }

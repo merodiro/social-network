@@ -9,9 +9,7 @@
 						<span class="pull-right">{{ post.created_at }}</span>
 					</div>
 					<div class="panel-body">
-						<p class="text-center">
-							{{ post.content }}
-						</p>
+						<p v-html="marked(post.content)"></p>
 					</div>
 					<div class="panel-footer">
 						<like :id="post.id"></like>
@@ -25,13 +23,8 @@
 <script>
 import Like from './Like.vue';
 export default {
-	data () {
-		return {
-
-		}
-	},
 	components: {
-		Like
+		Like,
 	},
 	mounted () {
 		this.get_feed()
@@ -44,6 +37,9 @@ export default {
 						this.$store.commit('ADD_POST', post)
 					})
 				})
+		},
+		marked(value) {
+			return marked(value)
 		}
 	},
 	computed: {

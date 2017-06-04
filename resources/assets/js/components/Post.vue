@@ -3,7 +3,6 @@
 	    <div class="row">
 	        <div class="col-md-10 col-md-offset-1">
 	            <div class="panel panel-default">
-
 	                <div class="panel-body">
 	                    <textarea rows="5" class="form-control" v-model="content" placeholder="What is on your mind?"></textarea>
 	                    <br>
@@ -32,9 +31,7 @@ export default {
 			axios.post('/api/post/create', {content: this.content})
 				.then(res => {
 					this.content = ''
-					noty({
-						text: 'Your post has been published'
-					})
+					noty('Your post has been published')
 					this.$store.commit('ADD_POST', res.data)
 				})
 		}
@@ -47,9 +44,6 @@ export default {
 				this.not_working = true
 			}
 		}
-	},
-	mounted () {
-
 	}
 }
 </script>

@@ -9,8 +9,9 @@
         "laravel/framework": "5.4.*",
         "laravel/passport": "^2.0",
         "laravel/scout": "^3.0",
-        "merodiro/friendships": "^0.3.0",
+        "merodiro/friendships": "~0.3",
         "pusher/pusher-php-server": "^2.6",
+        "sentry/sentry-laravel": "^0.7.0",
         "teamtnt/laravel-scout-tntsearch-driver": "^2.0"
     },
     "require-dev": {

@@ -1,7 +1,5 @@
 <template>
-    <div>
-        
-    </div>
+    <div></div>
 </template>
 
 <script>
@@ -18,9 +16,7 @@
             listen() {
                 Echo.private('App.User.' + this.$store.state.auth_user.id)
                     .notification( (notification) => {
-                        noty({
-                            text: notification.message
-                        })
+                        noty(notification.message)
                         this.$store.commit('ADD_NOT', notification)
                         document.getElementById('noty_audio').play()
                     })

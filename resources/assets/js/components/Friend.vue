@@ -35,9 +35,7 @@
                     .then(res => {
                         if (res.data) {
                             this.status ="waiting"
-                            noty({
-                                text: 'Friend request sent'
-                            })
+                            noty('Friend request sent')
                             this.loading = false
                         }
                     })
@@ -48,9 +46,7 @@
                     .then(res => {
                         if (res.data) {
                             this.status ="friends"
-                             noty({
-                                text: 'you are now friends'
-                            })
+                             noty('you are now friends')
                             this.loading = false
                         }
                     })

@@ -13,14 +13,7 @@ export default {
 	mounted() {
 		this.get_unread()
 	},
-
-	data () {
-		return {
-
-		}
-	},
 	methods:{
-
 		get_unread(){
 			axios.get('/api/get_unread')
 				.then(res => {

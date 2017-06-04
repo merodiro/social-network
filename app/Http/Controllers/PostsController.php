@@ -12,7 +12,9 @@ class PostsController extends Controller
     {
         $post = Auth::user()->posts()->create($request->all());
 
-        return Post::find($post->id);
+        $post->load('user', 'likes');
+
+        return $post;
     }
 
     public function feed()
