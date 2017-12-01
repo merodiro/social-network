@@ -8,17 +8,17 @@ use Illuminate\Support\Facades\Event;
 class EventServiceProvider extends ServiceProvider
 {
     /**
-      * The event listener mappings for the application.
-      *
-      * @var array
-      */
+     * The event listener mappings for the application.
+     *
+     * @var array
+     */
     protected $listen = [
         'App\Events\UserCreated' => [
             'App\Listeners\CreateProfile',
         ],
     ];
 
-     protected $subscribe = [
+    protected $subscribe = [
         'App\Listeners\FriendshipsSubscriber',
     ];
 

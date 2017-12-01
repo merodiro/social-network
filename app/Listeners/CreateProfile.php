@@ -2,10 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Profile;
 use App\Events\UserCreated;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class CreateProfile
 {

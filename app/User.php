@@ -23,7 +23,7 @@ class User extends Authenticatable
         'name', 'email', 'password', 'slug', 'gender', 'avatar',
     ];
 
-    protected $dispatchesEvents  = [
+    protected $dispatchesEvents = [
         'created' => UserCreated::class,
     ];
 

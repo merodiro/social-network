@@ -4,7 +4,6 @@ namespace App\Events;
 
 use App\User;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Foundation\Events\Dispatchable;
 
 class UserCreated
 {
