@@ -12,7 +12,7 @@ class profileController extends Controller
     public function index(User $user)
     {
         $user->load(['posts' => function ($query) {
-            $query->orderBy('id', 'desc');
+            $query->orderBy('id', 'desc')->limit(3);
         }]);
 
         $friends = $user->friends();

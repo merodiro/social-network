@@ -4,13 +4,12 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use MailThief\Testing\InteractsWithMail;
 
 class MailTest extends TestCase
 {
-    use DatabaseMigrations,
+    use RefreshDatabase,
         InteractsWithMail;
         
     /** @test */

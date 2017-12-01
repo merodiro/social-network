@@ -3,7 +3,7 @@ machine:
         America/Chicago
     php:
         version:
-            7.1.0
+            7.2.0
 
 dependencies:
     override:

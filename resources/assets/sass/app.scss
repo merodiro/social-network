@@ -1,12 +1,10 @@
-// Variables
 @import "variables";
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
 @import "bootswatch";
 
-@import "node_modules/noty/lib/noty";
+@import "~noty/lib/noty";
 
 .badge-primary {
 	background-color: $brand-primary;

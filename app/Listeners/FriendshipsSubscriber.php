@@ -14,7 +14,19 @@ class FriendshipsSubscriber implements ShouldQueue
 
     public function onFriendRequestSent(User $sender, User $recipient)
     {
-        $recipient->notify(new NewFriendRequest($sender));
+        $notifications = $recipient->notifications;
+
+        $notifications->each(function ($notification) use ($sender)
+        {
+            if ($notification->data['message'] == "$sender->name sent you a friend request")
+            {
+                $GLOBALS['exist'] = true;
+                return false;
+            }
+        });
+        if (!isset($GLOBALS['exist'])){
+            $recipient->notify(new NewFriendRequest($sender));
+        }
     }
 
     public function onFriendRequestAccepted(User $recipient, User $sender)
