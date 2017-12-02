@@ -14,7 +14,6 @@ class FriendshipsSubscriber implements ShouldQueue
 
     public function onFriendRequestSent(User $sender, User $recipient)
     {
-
         $recipient->notify(new NewFriendRequest($sender));
 
         // TODO

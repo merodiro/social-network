@@ -2,16 +2,15 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use MailThief\Testing\InteractsWithMail;
+use Tests\TestCase;
 
 class MailTest extends TestCase
 {
     use RefreshDatabase,
         InteractsWithMail;
-        
+
     /** @test */
     public function it_sends_an_email_when_user_adds_friend()
     {
