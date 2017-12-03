@@ -1,17 +1,17 @@
 <template>
 	<div class="container">
-		<div class="row">
-			<div class="col-lg-10 col-lg-offset-1">
-				<div class="panel panel-default" v-for="post in posts">
-					<div class="panel-heading">
+		<div class="row justify-content-lg-center">
+			<div class="col-lg-10">
+				<div class="card mb-3" v-for="post in posts" :key="post">
+					<div class="card-header">
 						<img :src="post.user.avatar" class="avatar-feed">
 						<a :href="'/profile/'+post.user.slug">{{ post.user.name }}</a>
 						<span class="pull-right">{{ post.created_at }}</span>
 					</div>
-					<div class="panel-body">
+					<div class="card-body">
 						<p v-html="marked(post.content)"></p>
 					</div>
-					<div class="panel-footer">
+					<div class="card-footer">
 						<like :id="post.id"></like>
 					</div>
 				</div>

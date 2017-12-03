@@ -1,8 +1,12 @@
 window._ = require('lodash')
 
-window.$ = window.jQuery = require('jquery')
+window.Popper = require('popper.js/dist/umd/popper')
 
-require('bootstrap-sass')
+try {
+    window.$ = window.jQuery = require('jquery/dist/jquery.slim');
+
+    require('bootstrap');
+} catch (e) { }
 
 const Noty = require('noty')
 
@@ -59,5 +63,5 @@ import Echo from "laravel-echo"
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: 'af2cda5d9811828831e0'
+    key: process.env.MIX_PUSHER_APP_KEY
 })

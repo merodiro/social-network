@@ -1,23 +1,16 @@
 <template>
-    <form class="navbar-form navbar-left" role="search">
-        <div class="input-group">
-            <div class="input-group-btn" :class="{'open':opened}">
-                <input type="text" class="form-control" placeholder="Search for other users" v-model="query">
-                <ul class="dropdown-menu" v-if="results && query">
-                    <li v-for="user in results">
-                        <a :href="'/profile/'+user.slug">
-                            <img :src="user.avatar" class="search-avatar">
-                            {{user.name}}
-                        </a>
-                    </li>
-                </ul>
-            </div>
+    <form class="form-inline my-2 my-md-0 ml-3 ml-md-0 dropdown">
+        <input type="text" class="form-control" placeholder="Search for other users" v-model="query">
+        <div class="dropdown-menu dropdown-menu-right" :class="{'show':opened}">
+            <a v-for="user in results" :key="user" class="dropdown-item my-1" :href="'/profile/'+user.slug">
+                <img :src="user.avatar" class="search-avatar">
+                {{user.name}}
+            </a>
         </div>
     </form>
 </template>
 
 <script>
-
     export default {
         data () {
             return {

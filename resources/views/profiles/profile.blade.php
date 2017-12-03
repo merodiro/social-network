@@ -4,13 +4,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<p class="text-center">
+				<div class="card">
+					<div class="card-header bg-primary text-white">
+						<h5 class="card-title text-center">
 							{{ $user->name }}'s profile
-						</p>
+						</h5>
 					</div>
-					<div class="panel-body">
+					<div class="card-body">
 						<center>
 							<img src="{{ $user->avatar }}" width="70px" height="70px" style="border-radius: 50%">
 						</center>
@@ -31,61 +31,64 @@
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="panel panel-warning">
-					<div class="panel-heading">
-						<p class="text-center">
+				<div class="card">
+					<div class="card-header bg-warning text-white">
+						<h5 class="card-title text-center">
 							About me
-						</p>
+						</h5>
 					</div>
-					<div class="panel-body">
-						<p class="text-center">
+					<div class="card-body">
+						<p class="card-text text-center">
 							{{ $user->profile->about }}
 						</p>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="panel panel-danger">
-					<div class="panel-heading text-center">
-						Friends
+				<div class="card">
+					<div class="card-header bg-danger text-white">
+						<h5 class="card-title text-center">
+							Friends
+						</h5>
 					</div>
-					<div class="panel-body">
-						<ul class="nav nav-pills nav-stacked">
+					<div class="card-body">
+						<div class="list-group">
 							@if ($friends->count())
 								@foreach ($friends as $friend)
-									<li><a href="{{$friend->url}}">
+									<a class="list-group-item list-group-item-action" href="{{$friend->url}}">
 										<img src="{{$friend->avatar}}" height="40px">
 										<span class="pull-right">{{$friend->name}}</span>
-									</a></li>
+									</a>
 								@endforeach
 							@else
-								<p class="text-center">User has no friends</p>
+								<p class="card-text text-center">User has no friends</p>
 							@endif
 
-						</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row mt-3">
 			<div class="col-md-8">
-				<div class="panel panel-info">
-					<div class="panel-heading text-center">
-						Posts
+				<div class="card card-info">
+					<div class="card-header text-center bg-info text-white">
+						<h5 class="card-title text-center">
+							Posts
+						</h5>
 					</div>
-					<div class="panel-body">
+					<div class="card-body">
 						@foreach ($user->posts as $post)
-							<div class="panel panel-default">
 
-								<div class="panel-body">
-									<p class="text-center">
+							<div class="card card-default mb-3">
+								<div class="card-body">
+									<p class="card-text text-center">
 										{{ $post->content }}
 									</p>
 								</div>
-								<div class="panel-footer">
-									<span class="text-primary">
-										posted on: {{$post->created_at}}
-									</span>
+
+								<div class="card-footer text-muted text-right">
+									posted on: {{$post->created_at}}
 								</div>
 							</div>
 

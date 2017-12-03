@@ -2,12 +2,16 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Edit your profile.</div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title text-center">
+                        Edit your profile.
+                    </h5>
+                </div>
 
-                <div class="panel-body">
+                <div class="card-body">
                     <form action="{{ route('profile.update') }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
@@ -23,15 +27,15 @@
 
                         <div class="form-group">
                             <label for="about">About me</label>
-                            <textarea class="form-control" name="about" id="about" cols="50" rows="10">{{ $info->about }}</textarea>
+                            <textarea class="form-control" name="about" id="about" cols="50" rows="10">
+                                {{ $info->about }}
+                            </textarea>
                         </div>
                         
-                        <div class="form-group">
-                            <p class="text-center">
-                                <button class="btn btn-primary btn-lg" type="submit">
-                                    Save your information
-                                </button>
-                            </p>
+                        <div class="form-group row justify-content-center">
+                            <button class="btn btn-outline-primary btn-lg" type="submit">
+                                Save your information
+                            </button>
                         </div>
                     </form>
                 </div>

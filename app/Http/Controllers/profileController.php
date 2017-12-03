@@ -31,8 +31,7 @@ class profileController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-                'location' => 'required',
-                'about'    => 'required|max:255',
+                'about'    => 'max:255',
             ]);
 
         Auth::user()->profile()->update([

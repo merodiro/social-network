@@ -5,20 +5,20 @@ mix.js('resources/assets/js/app.js', 'public/js')
   .browserSync({
     proxy: 'social-network.dev'
   })
-  .extract([
-      'vue',
-      'vuex',
-      'bootstrap-sass',
-      'jquery',
-      'axios',
-      'noty',
-      'highlight.js',
-      'marked',
-      'laravel-echo',
-      'pusher-js',
-      'raven-js',
-      'lodash'
-    ])
-  .autoload({
-    jquery: ['$', 'window.jQuery', 'jQuery']
-  })
+  // .extract([
+  //     'vue',
+  //     'vuex',
+  //     'bootstrap',
+  //     'jquery',
+  //     'axios',
+  //     'noty',
+  //     'highlight.js',
+  //     'marked',
+  //     'laravel-echo',
+  //     'pusher-js',
+  //     'raven-js',
+  //     'lodash'
+  //   ])
+  // .autoload({
+  //   jquery: ['$', 'window.jQuery', 'jQuery']
+  // })

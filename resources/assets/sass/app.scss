@@ -1,27 +1,7 @@
 @import "variables";
 
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~bootstrap/scss/bootstrap";
 
 @import "bootswatch";
 
 @import "~noty/lib/noty";
-
-.badge-primary {
-	background-color: $brand-primary;
-}
-
-.badge-success {
-	background-color: $brand-success;
-}
-
-.badge-info {
-	background-color: $brand-info;
-}
-
-.badge-warning {
-	background-color: $brand-warning;
-}
-
-.badge-danger {
-	background-color: $brand-danger;
-}
