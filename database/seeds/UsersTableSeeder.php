@@ -23,19 +23,5 @@ class UsersTableSeeder extends Seeder
                         factory(Post::class, rand(1, 15))->make()
                     );
             });
-
-        $users = User::all();
-
-        $users->each(
-            function ($user) {
-                for ($i = 0; $i < rand(1, 30); $i++) {
-                    $user1 = User::inRandomOrder()->first();
-                    $user2 = User::inRandomOrder()->first();
-
-                    $user->addFriend($user1);
-                    $user->acceptFriend($user2);
-                }
-            }
-        );
     }
 }

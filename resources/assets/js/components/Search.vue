@@ -37,9 +37,9 @@
                 function function_name(argument) {
                     if (_.trim(this.query) != '') {
                         axios.post('/api/search', {query: this.query})
-                        .then(res => {
-                            this.results = res.data
-                        })
+                            .then(res => {
+                                this.results = res.data
+                            })
                     }
                 }, 500)
         }
