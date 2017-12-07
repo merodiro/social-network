@@ -166,14 +166,8 @@ return [
         /*
          * Package Service Providers...
          */
-        Laravel\Tinker\TinkerServiceProvider::class,
-        Laravel\Scout\ScoutServiceProvider::class,
-        TeamTNT\Scout\TNTSearchScoutServiceProvider::class,
-        Laravel\Passport\PassportServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
         Sentry\SentryLaravel\SentryLaravelServiceProvider::class,
-
-        Merodiro\Friendships\FriendshipsServiceProvider::class,
+        ScoutEngines\Elasticsearch\ElasticsearchProvider::class,
         /*
          * Application Service Providers...
          */

@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'cloud' => 's3',
+    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
 
     /*
     |--------------------------------------------------------------------------
@@ -58,6 +58,15 @@ return [
         's3' => [
             'driver' => 's3',
             'key'    => env('AWS_KEY'),
+            'secret' => env('AWS_SECRET'),
+            'region' => env('AWS_REGION'),
+            'bucket' => env('AWS_BUCKET'),
+        ],
+        'minio' => [
+            'driver' => 's3',
+            'endpoint' => env('MINIO_ENDPOINT', 'http://127.0.0.1:9005'),
+            'use_path_style_endpoint' => true,
+            'key' => env('AWS_KEY'),
             'secret' => env('AWS_SECRET'),
             'region' => env('AWS_REGION'),
             'bucket' => env('AWS_BUCKET'),
