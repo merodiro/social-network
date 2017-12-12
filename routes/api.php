@@ -12,11 +12,11 @@
 |
 */
 
-Route::middleware('auth:api')->get('/user', 'UsersController@auth');
-
 Route::post('/search', 'UsersController@search');
 
 Route::group(['middleware' => 'auth:api'], function () {
+    Route::get('/user', 'UsersController@auth');
+
     Route::group(['prefix' => 'friend'], function () {
         Route::get('/add/{user}', 'Friendshipscontroller@addFriend');
 

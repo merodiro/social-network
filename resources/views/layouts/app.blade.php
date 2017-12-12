@@ -21,7 +21,7 @@
         @yield('content')
 
         @if (Auth::check())
-            <notification :id="{{ Auth::id() }}"></notification>
+            <notification></notification>
         @endif
 
         <audio id="noty_audio">
@@ -32,11 +32,12 @@
     </div>
 
     @if (config('app.debug'))
-        {{-- @include('sudosu::user-selector') --}}
+        @include('sudosu::user-selector')
     @endif
 
     <!-- Scripts -->
     <script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     {{-- <script src="{{ mix('js/manifest.js') }}"></script> --}}
     {{-- <script src="{{ mix('js/vendor.js') }}"></script> --}}
     <script src="{{ mix('js/app.js') }}"></script>

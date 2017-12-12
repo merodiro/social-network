@@ -1,3 +1,9 @@
+<template>
+  <div>
+  </div>
+</template>
+
+
 <script>
     export default {
         mounted() {
@@ -7,7 +13,6 @@
                     this.listen()
                 })
         },
-        props: ['id'],
         methods: {
             listen() {
                 Echo.private('App.User.' + this.$store.state.auth_user.id)

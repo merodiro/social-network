@@ -4,6 +4,8 @@
 /storage/*.index
 /vendor
 /.idea
+/.vagrant
 Homestead.json
 Homestead.yaml
 .env
+.php_cs.cache
