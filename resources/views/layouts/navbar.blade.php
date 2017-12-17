@@ -8,14 +8,14 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarColor02">
-            @if (Auth::check())
+            @auth
                 <ul class="navbar-nav mr-md-4">
                     <li class="nav-item ml-md-0 ml-3">
                         <a class="nav-link" href="{{ Auth::user()->url}}">My profile</a>
                     </li>
                     <unread></unread>
                 </ul>
-            @endif
+            @endauth
             
             <search></search>
             {{-- <form class="form-inline my-2 my-lg-0">
@@ -24,7 +24,7 @@
             </form> --}}
 
             <ul class="navbar-nav ml-md-auto">
-                @if (Auth::guest())
+                @guest
                     <li class="nav-item ml-md-0 ml-3">
                         <a class="nav-link" href="{{ url('/login') }}">Login</a>
                     </li>
@@ -50,7 +50,7 @@
                                 </form>
                             </div>
                         </li>
-                @endif
+                @endguest
             </ul>
         </div>
     </div>

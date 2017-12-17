@@ -20,9 +20,9 @@
         
         @yield('content')
 
-        @if (Auth::check())
+        @auth
             <notification></notification>
-        @endif
+        @endauth
 
         <audio id="noty_audio">
             <source src="{{ asset('audio/notify.mp3') }}">

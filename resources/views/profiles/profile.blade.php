@@ -18,7 +18,7 @@
 						<p class="text-center">
 							{{ $user->profile->location }}
 						</p>
-						@if (Auth::check())
+						@auth
 							<p class="text-center">
 								@if (Auth::id() == $user->id)
 									<a href="{{ route('profile.edit') }}" class="btn btn-lg btn-info">Edit your profile</a>
@@ -26,7 +26,7 @@
 									<friend profile_user_slug="{{ $user->slug }}"/>
 								@endif
 							</p>
-						@endif
+						@endauth
 					</div>
 				</div>
 			</div>
