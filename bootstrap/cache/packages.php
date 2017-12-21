@@ -74,4 +74,18 @@
       0 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
     ),
   ),
+  'jeroen-g/laravel-packager' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'JeroenG\\Packager\\PackagerServiceProvider',
+    ),
+  ),
+  'merodiro/simple-admin' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Merodiro\\SimpleAdmin\\SimpleAdminServiceProvider',
+    ),
+  ),
 );

@@ -75,6 +75,9 @@
 					<div class="card-header text-center bg-info text-white">
 						<h5 class="card-title text-center">
 							Posts
+							@admin
+								secret
+							@endadmin
 						</h5>
 					</div>
 					<div class="card-body">

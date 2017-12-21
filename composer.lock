@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "50b45a8c4acc762160ecc0caf0e21b29",
+    "content-hash": "05fac14cdaabb964842d5ca1859e0f30",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1567,6 +1567,63 @@
                 "laravel"
             ],
             "time": "2017-12-01T08:53:30+00:00"
+        },
+        {
+            "name": "merodiro/simple-admin",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/merodiro/simple-admin.git",
+                "reference": "b3ce615735dff70efc422ef48acc878d34ab131d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/merodiro/simple-admin/zipball/b3ce615735dff70efc422ef48acc878d34ab131d",
+                "reference": "b3ce615735dff70efc422ef48acc878d34ab131d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.5",
+                "php": "~7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6.0",
+                "squizlabs/php_codesniffer": "^3.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Merodiro\\SimpleAdmin\\SimpleAdminServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Merodiro\\SimpleAdmin\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Amr A. Mohammed",
+                    "email": "merodiro@gmail.com",
+                    "homepage": "https://web-point.github.io/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple admin system",
+            "homepage": "https://github.com/merodiro/simple-admin",
+            "keywords": [
+                "Merodiro",
+                "SimpleAdmin",
+                "admin",
+                "laravel"
+            ],
+            "time": "2017-12-17T21:53:47+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -3688,6 +3745,62 @@
             "time": "2017-09-18T13:32:46+00:00"
         },
         {
+            "name": "composer/ca-bundle",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/ca-bundle.git",
+                "reference": "943b2c4fcad1ef178d16a713c2468bf7e579c288"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/943b2c4fcad1ef178d16a713c2468bf7e579c288",
+                "reference": "943b2c4fcad1ef178d16a713c2468bf7e579c288",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "ext-pcre": "*",
+                "php": "^5.3.2 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35",
+                "psr/log": "^1.0",
+                "symfony/process": "^2.5 || ^3.0 || ^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\CaBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                }
+            ],
+            "description": "Lets you find a path to the system CA bundle, and includes a fallback to the Mozilla CA bundle.",
+            "keywords": [
+                "cabundle",
+                "cacert",
+                "certificate",
+                "ssl",
+                "tls"
+            ],
+            "time": "2017-11-29T09:37:33+00:00"
+        },
+        {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
             "source": {
@@ -4019,6 +4132,62 @@
                 }
             ],
             "time": "2015-04-20T18:58:01+00:00"
+        },
+        {
+            "name": "jeroen-g/laravel-packager",
+            "version": "v1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jeroen-G/laravel-packager.git",
+                "reference": "5f93868a8f9c85a5c1f04d47b6a44cd542074a9a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jeroen-G/laravel-packager/zipball/5f93868a8f9c85a5c1f04d47b6a44cd542074a9a",
+                "reference": "5f93868a8f9c85a5c1f04d47b6a44cd542074a9a",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6",
+                "illuminate/console": "~5",
+                "illuminate/filesystem": "~5",
+                "illuminate/support": "~5",
+                "sensiolabs/security-checker": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "JeroenG\\Packager\\PackagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JeroenG\\Packager\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "EUPL-1.1"
+            ],
+            "authors": [
+                {
+                    "name": "JeroenG",
+                    "email": "jeroengjeroeng@gmail.com",
+                    "homepage": "https://github.com/Jeroen-G"
+                }
+            ],
+            "description": "A cli tool for creating Laravel packages.",
+            "homepage": "https://github.com/Jeroen-G/laravel-packager",
+            "keywords": [
+                "Skeleton",
+                "github",
+                "laravel",
+                "package",
+                "packager"
+            ],
+            "time": "2017-09-01T15:09:40+00:00"
         },
         {
             "name": "laravel/homestead",
@@ -4923,16 +5092,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.5.4",
+            "version": "6.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "1b2f933d5775f9237369deaa2d2bfbf9d652be4c"
+                "reference": "83d27937a310f2984fd575686138597147bdc7df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1b2f933d5775f9237369deaa2d2bfbf9d652be4c",
-                "reference": "1b2f933d5775f9237369deaa2d2bfbf9d652be4c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/83d27937a310f2984fd575686138597147bdc7df",
+                "reference": "83d27937a310f2984fd575686138597147bdc7df",
                 "shasum": ""
             },
             "require": {
@@ -5003,7 +5172,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-12-10T08:06:19+00:00"
+            "time": "2017-12-17T06:31:19+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -5696,6 +5865,51 @@
             "time": "2016-10-03T07:35:21+00:00"
         },
         {
+            "name": "sensiolabs/security-checker",
+            "version": "v4.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sensiolabs/security-checker.git",
+                "reference": "387b6a3b723ba35588b33d5f8d14e28ed608bd30"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/387b6a3b723ba35588b33d5f8d14e28ed608bd30",
+                "reference": "387b6a3b723ba35588b33d5f8d14e28ed608bd30",
+                "shasum": ""
+            },
+            "require": {
+                "composer/ca-bundle": "^1.0",
+                "symfony/console": "~2.7|~3.0|~4.0"
+            },
+            "bin": [
+                "security-checker"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "SensioLabs\\Security": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien.potencier@gmail.com"
+                }
+            ],
+            "description": "A security checker for your composer.lock",
+            "time": "2017-10-29T18:48:08+00:00"
+        },
+        {
             "name": "symfony/yaml",
             "version": "v4.0.2",
             "source": {
@@ -5928,7 +6142,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "merodiro/simple-admin": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -13,6 +13,7 @@
         "laravel/scout": "^3.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "merodiro/friendships": "~1.0",
+        "merodiro/simple-admin": "dev-master",
         "predis/predis": "^1.1",
         "pusher/pusher-php-server": "^3.0",
         "sentry/sentry-laravel": "^0.8.0",
@@ -22,6 +23,7 @@
         "barryvdh/laravel-debugbar": "^3.0",
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
+        "jeroen-g/laravel-packager": "^1.6",
         "laravel/homestead": "^7.0",
         "laravel/tinker": "~1.0",
         "mockery/mockery": "~1.0",
@@ -35,11 +37,13 @@
             "database/factories"
         ],
         "psr-4": {
+            
             "App\\": "app/"
         }
     },
     "autoload-dev": {
         "psr-4": {
+            
             "Tests\\": "tests/"
         }
     },
