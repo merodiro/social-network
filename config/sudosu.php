@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Allowed TLDs - Use with caution!
@@ -15,7 +14,7 @@ return [
     |
      */
 
-    'allowed_tlds' => ['dev', 'local'],
+    'allowed_tlds' => ['dev', 'local', 'test'],
 
     /*
     |--------------------------------------------------------------------------
@@ -28,5 +27,4 @@ return [
      */
 
     'user_model' => App\User::class,
-
 ];

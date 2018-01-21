@@ -4,6 +4,8 @@ machine:
     php:
         version:
             7.1.9
+    services:
+        - elasticsearch
 
 dependencies:
     override:

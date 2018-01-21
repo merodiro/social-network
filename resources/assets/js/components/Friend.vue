@@ -4,10 +4,10 @@
             Loading...
         </p>
         <p class="text-center" v-if="!loading">
-            <button id="add-friend" class="btn btn-outline-success" v-if="status == 'not friends'" @click="add_friend">Add Friend</button>
-            <button id="accept-friend" class="btn btn-outline-success" v-if="status == 'pending'" @click="accept_friend">Accept Friend</button>
-            <button id="cancel-friend" class="btn btn-outline-danger" v-if="status == 'waiting'" @click="delete_friend()">Cancel friend request</button>
-            <button id="delete-friend" class="btn btn-outline-danger" v-if="status == 'friends'" @click="delete_friend()">Unfriend</button>
+            <button class="btn btn-outline-success" v-if="status == 'not_friends'" @click="add_friend">Add Friend</button>
+            <button class="btn btn-outline-success" v-if="status == 'pending'" @click="accept_friend">Accept Friend</button>
+            <button class="btn btn-outline-danger" v-if="status == 'waiting'" @click="delete_friend()">Cancel friend request</button>
+            <button class="btn btn-outline-danger" v-if="status == 'friends'" @click="delete_friend()">Unfriend</button>
         </p>
     </div>
 </template>
@@ -56,7 +56,7 @@
                 axios.get('/api/friend/delete/' + this.profile_user_slug)
                     .then(res => {
                         if (res.data) {
-                            this.status = 'not friends'
+                            this.status = 'not_friends'
                             this.loading = false
                         }
                     })

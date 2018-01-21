@@ -1,0 +1,37 @@
+{
+	"authHost": "http://social-network.test",
+	"authEndpoint": "/broadcasting/auth",
+	"clients": [
+		{
+			"appId": "6702a08ae52ba550",
+			"key": "9f2b94f1c522ab89dd1c447280c24dc2"
+		}
+	],
+	"database": "redis",
+	"databaseConfig": {
+		"redis": {
+			"host":"localhost",
+			"port":"6379"
+		},
+		"sqlite": {
+			"databasePath": "/database/laravel-echo-server.sqlite"
+		}
+	},
+	"devMode": true,
+	"host": null,
+	"port": "6001",
+	"protocol": "http",
+	"socketio": {
+		"wsEngine": "uws"
+	},
+	"sslCertPath": "",
+	"sslKeyPath": "",
+	"sslCertChainPath": "",
+	"sslPassphrase": "",
+	"apiOriginAllow": {
+		"allowCors": false,
+		"allowOrigin": "",
+		"allowMethods": "",
+		"allowHeaders": ""
+	}
+}

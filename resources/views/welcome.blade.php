@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    @settings('name')
                 </div>
 
                 <div class="links">

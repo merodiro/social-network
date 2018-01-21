@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-5">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/home') }}">
-            {{ config('app.name', 'Laravel') }}
+            @settings('name')
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" style="">
             <span class="navbar-toggler-icon"></span>

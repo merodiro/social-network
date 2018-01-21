@@ -29,5 +29,8 @@ Route::get('/profile/{user}', 'profileController@index')
     ->name('profile');
 
 Route::get('/admin', function () {
-    return 'hello';
+    Settings::set('name', 'Social network');
+    // Settings::flush();
+    // return view('welcome');
+    return Settings::all();
 })->middleware('admin');

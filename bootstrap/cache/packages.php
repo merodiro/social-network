@@ -1,18 +1,4 @@
 <?php return array (
-  'merodiro/friendships' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Merodiro\\Friendships\\FriendshipsServiceProvider',
-    ),
-  ),
-  'laravel/tinker' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    ),
-  ),
   'laravel/passport' => 
   array (
     'providers' => 
@@ -49,17 +35,6 @@
       0 => 'ScoutEngines\\Elasticsearch\\ElasticsearchProvider',
     ),
   ),
-  'laravel/horizon' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Laravel\\Horizon\\HorizonServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Horizon' => 'Laravel\\Horizon\\Horizon',
-    ),
-  ),
   'laravel/scout' => 
   array (
     'providers' => 
@@ -81,11 +56,47 @@
       0 => 'JeroenG\\Packager\\PackagerServiceProvider',
     ),
   ),
+  'laravel/tinker' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Laravel\\Tinker\\TinkerServiceProvider',
+    ),
+  ),
+  'laravel/horizon' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Laravel\\Horizon\\HorizonServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Horizon' => 'Laravel\\Horizon\\Horizon',
+    ),
+  ),
   'merodiro/simple-admin' => 
   array (
     'providers' => 
     array (
       0 => 'Merodiro\\SimpleAdmin\\SimpleAdminServiceProvider',
+    ),
+  ),
+  'merodiro/settings' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Merodiro\\Settings\\SettingsServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Settings' => 'Merodiro\\Settings\\Facades\\Settings',
+    ),
+  ),
+  'merodiro/friendships' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Merodiro\\Friendships\\FriendshipsServiceProvider',
     ),
   ),
 );

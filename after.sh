@@ -4,7 +4,7 @@
 # add any commands you wish to this file and they will
 # be run after the Homestead machine is provisioned.
 
-sudo npm install -g laravel-echo-server
+sudo yarn global add laravel-echo-server
 
 if sudo [ ! -f /etc/supervisor/conf.d/laravel-worker.conf ]; then
 
@@ -20,11 +20,11 @@ user=vagrant
 redirect_stderr=true
 stdout_logfile=/home/vagrant/code/storage/logs/laravel-worker.log
 [program:echo-server]
-directory=/home/vagrant/path/to/your/project
-command=/usr/bin/laravel-echo-server start
+directory=/home/vagrant/code
+command=/usr/local/bin/laravel-echo-server start --dir=/home/vagrant/code
 autostart=true
 autorestart=true
-user=vagrant
+user=root
 redirect_stderr=true
 stdout_logfile=/home/vagrant/code/storage/logs/echoserver.log
 EOF
