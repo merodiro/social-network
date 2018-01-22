@@ -5,6 +5,5 @@ risky: false
 finder:
   exclude:
     - "bootstrap\cache"
-    - "bootstrap\cache"
   name:
     - "*.php"
