@@ -69,7 +69,7 @@ return [
         ],
         'asYouType' => true,
     ],
-    
+
     'elasticsearch' => [
         'index' => env('ELASTICSEARCH_INDEX', 'laravel'),
         'hosts' => [

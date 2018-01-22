@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Notifications\FriendRequestAccepted;
-use App\Notifications\NewFriendRequest;
 use App\User;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Notifications\NewFriendRequest;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Notifications\FriendRequestAccepted;
 
 class FriendshipsSubscriber implements ShouldQueue
 {
