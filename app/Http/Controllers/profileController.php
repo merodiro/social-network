@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Auth;
-use Illuminate\Http\Request;
 use Session;
+use App\User;
+use Illuminate\Http\Request;
 
 class profileController extends Controller
 {
