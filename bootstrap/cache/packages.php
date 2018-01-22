@@ -1,9 +1,27 @@
 <?php return array (
+  'barryvdh/laravel-debugbar' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Barryvdh\\Debugbar\\ServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Debugbar' => 'Barryvdh\\Debugbar\\Facade',
+    ),
+  ),
   'fideloper/proxy' => 
   array (
     'providers' => 
     array (
       0 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
+    ),
+  ),
+  'jeroen-g/laravel-packager' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'JeroenG\\Packager\\PackagerServiceProvider',
     ),
   ),
   'laravel/passport' => 
@@ -18,6 +36,13 @@
     'providers' => 
     array (
       0 => 'Laravel\\Scout\\ScoutServiceProvider',
+    ),
+  ),
+  'laravel/tinker' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Laravel\\Tinker\\TinkerServiceProvider',
     ),
   ),
   'merodiro/friendships' => 
@@ -54,31 +79,6 @@
     'aliases' => 
     array (
       'Sentry' => 'Sentry\\SentryLaravel\\SentryFacade',
-    ),
-  ),
-  'barryvdh/laravel-debugbar' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Barryvdh\\Debugbar\\ServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Debugbar' => 'Barryvdh\\Debugbar\\Facade',
-    ),
-  ),
-  'jeroen-g/laravel-packager' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'JeroenG\\Packager\\PackagerServiceProvider',
-    ),
-  ),
-  'laravel/tinker' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Laravel\\Tinker\\TinkerServiceProvider',
     ),
   ),
 );
