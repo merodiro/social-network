@@ -1,20 +1,12 @@
 {
-	"authHost": "http://social-network.test",
+	"authHost": "http://social-network.oo",
 	"authEndpoint": "/broadcasting/auth",
-	"clients": [
-		{
-			"appId": "6702a08ae52ba550",
-			"key": "9f2b94f1c522ab89dd1c447280c24dc2"
-		}
-	],
+	"clients": [],
 	"database": "redis",
 	"databaseConfig": {
 		"redis": {
-			"host":"localhost",
-			"port":"6379"
-		},
-		"sqlite": {
-			"databasePath": "/database/laravel-echo-server.sqlite"
+			"host": "localhost",
+			"port": "6379"
 		}
 	},
 	"devMode": true,

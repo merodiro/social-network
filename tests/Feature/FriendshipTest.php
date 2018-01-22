@@ -66,7 +66,7 @@ class FriendshipTest extends TestCase
         $this->assertEquals('friends', $recipient->checkFriendship($sender));
 
         $sender->deleteFriend($recipient);
-        $this->assertEquals('not friends', $recipient->checkFriendship($sender));
+        $this->assertEquals('not_friends', $recipient->checkFriendship($sender));
     }
 
     /** @test */

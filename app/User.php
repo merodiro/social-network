@@ -60,9 +60,4 @@ class User extends Authenticatable
     {
         return route('profile', ['slug' => $this->slug]);
     }
-
-    public function searchableAs()
-    {
-        return 'name';
-    }
 }

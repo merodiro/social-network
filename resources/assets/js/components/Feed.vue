@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row justify-content-lg-center">
 			<div class="col-lg-10">
-				<div class="card mb-3" v-for="post in posts" :key="post">
+				<div class="card mb-3" v-for="post in posts" :key="post.id">
 					<div class="card-header">
 						<img :src="post.user.avatar" class="avatar-feed">
 						<a :href="'/profile/'+post.user.slug">{{ post.user.name }}</a>

@@ -22,6 +22,7 @@ class UsersTableSeeder extends Seeder
                 $user->posts()->saveMany(
                         factory(Post::class, rand(1, 15))->make()
                     );
-            });
+            }
+        );
     }
 }
