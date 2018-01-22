@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use MailThief\Testing\InteractsWithMail;
 use Tests\TestCase;
+use MailThief\Testing\InteractsWithMail;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class MailTest extends TestCase
 {

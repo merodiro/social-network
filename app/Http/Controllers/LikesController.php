@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Like;
 use App\Post;
-use Auth;
 
 class LikesController extends Controller
 {
