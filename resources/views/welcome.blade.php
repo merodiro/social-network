@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    @settings('name')
+                    @settings('name', 'Social network')
                 </div>
 
                 <div class="links">
