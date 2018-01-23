@@ -14,11 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // \DB::listen(function ($query) {
-        //     \Log::info($query->sql);
-        // });
-
-        Schema::defaultStringLength(191);
+        // Schema::defaultStringLength(191);
     }
 
     /**
@@ -28,9 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (config('app.debug')) {
+        if ($this->app->environment('local', 'testing')) {
             $this->app->register('VIACreative\SudoSu\ServiceProvider');
-            $this->app->register('JeroenG\Packager\PackagerServiceProvider');
+            // $this->app->register('JeroenG\Packager\PackagerServiceProvider');
         }
     }
 }

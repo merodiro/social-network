@@ -4,10 +4,10 @@
             Loading...
         </p>
         <p class="text-center" v-if="!loading">
-            <button class="btn btn-success" v-if="status == 'not friends'" @click="add_friend">Add Friend</button>
-            <button class="btn btn-success" v-if="status == 'pending'" @click="accept_friend">Accept Friend</button>
-            <button class="btn btn-danger" v-if="status == 'waiting'" @click="delete_friend()">Cancel friend request</button>
-            <button class="btn btn-danger" v-if="status == 'friends'" @click="delete_friend()">Unfriend</button>
+            <button class="btn btn-outline-success" v-if="status == 'not_friends'" @click="add_friend">Add Friend</button>
+            <button class="btn btn-outline-success" v-if="status == 'pending'" @click="accept_friend">Accept Friend</button>
+            <button class="btn btn-outline-danger" v-if="status == 'waiting'" @click="delete_friend()">Cancel friend request</button>
+            <button class="btn btn-outline-danger" v-if="status == 'friends'" @click="delete_friend()">Unfriend</button>
         </p>
     </div>
 </template>
@@ -35,9 +35,7 @@
                     .then(res => {
                         if (res.data) {
                             this.status ="waiting"
-                            noty({
-                                text: 'Friend request sent sent'
-                            })
+                            noty('Friend request sent')
                             this.loading = false
                         }
                     })
@@ -48,9 +46,7 @@
                     .then(res => {
                         if (res.data) {
                             this.status ="friends"
-                             noty({
-                                text: 'you are now friends'
-                            })
+                             noty('you are now friends')
                             this.loading = false
                         }
                     })
@@ -60,7 +56,7 @@
                 axios.get('/api/friend/delete/' + this.profile_user_slug)
                     .then(res => {
                         if (res.data) {
-                            this.status = 'not friends'
+                            this.status = 'not_friends'
                             this.loading = false
                         }
                     })

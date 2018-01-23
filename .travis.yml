@@ -2,24 +2,21 @@ language: php
 
 php:
   - 7.1
+  - 7.2
+
+sudo: false
+
+dist: trusty
 
 before_script:
-  - chmod 777 -R storage
-  - cp .env.testing .env
-  - mysql -e 'create database social_network;'
-  - composer self-update
-  - composer install --no-interaction --prefer-source
-  - php artisan key:generate
-  - php artisan migrate
-
-
-
-services:
-  - mysql
+  - composer install --no-interaction --prefer-dist
 
 cache:
   directories:
-    - vendor
+    - $HOME/.composer/cache/files
 
 script:
   - vendor/bin/phpunit
+
+notifications:
+  email: false

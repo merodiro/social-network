@@ -1,62 +1,65 @@
+window._ = require('lodash')
 
-window._ = require('lodash');
+window.Popper = require('popper.js/dist/umd/popper')
 
-/**
- * We'll load jQuery and the Bootstrap jQuery plugin which provides support
- * for JavaScript based Bootstrap features such as modals and tabs. This
- * code may be modified to fit the specific needs of your application.
- */
+try {
+    window.$ = window.jQuery = require('jquery/dist/jquery.slim');
 
-window.$ = window.jQuery = require('jquery');
+    require('bootstrap');
+} catch (e) {}
 
-require('bootstrap-sass');
+const Noty = require('noty')
 
-require('noty');
+Noty.overrideDefaults({
+    layout: 'bottomLeft',
+    theme: 'sunset',
+    maxVisible: 3,
+    timeout: 1500,
+    progressBar: true
+})
 
-$.noty.defaults.theme = 'metroui';
-$.noty.defaults.layout = 'bottomLeft';
-$.noty.defaults.type = 'success';
-$.noty.defaults.maxVisible = 3;
-$.noty.defaults.timeout = 1500;
-$.noty.defaults.progressBar = true;
+window.noty = function (msg, type = 'success') {
+    new Noty({
+        text: msg,
+        type: type
+    }).show()
+}
+
+window.Vue = require('vue')
+
+import Raven from 'raven-js'
+import RavenVue from 'raven-js/plugins/vue'
+
+Raven
+    .config(process.env.MIX_SENTRY_DSN)
+    .addPlugin(RavenVue, Vue)
+    .install()
 
 
-/**
- * Vue is a modern JavaScript library for building interactive web interfaces
- * using reactive data binding and reusable components. Vue's API is clean
- * and simple, leaving you to focus on building your next great project.
- */
+window.marked = require('marked')
 
-window.Vue = require('vue');
+marked.setOptions({
+    highlight: function (code) {
+        return require('highlight.js').highlightAuto(code).value
+    },
+    sanitize: true
+})
 
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
+window.axios = require('axios')
 
-window.axios = require('axios');
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 
-window.axios.defaults.headers.common = {
-    'X-Requested-With': 'XMLHttpRequest',
-    'X-CSRF-TOKEN': Laravel.csrfToken
-};
+let token = $('meta[name=csrf-token]').attr('content')
 
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
+if (token) {
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token
+} else {
+    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token')
+}
 
-window.Pusher = require('pusher-js');
-
-import Echo from "laravel-echo"
+import Echo from 'laravel-echo'
 
 window.Echo = new Echo({
-    broadcaster: 'pusher',
-    key: 'af2cda5d9811828831e0'
-});
-
-// Pusher.log = function (message) {
-// 	window.console.log(message)
-// }
+    broadcaster: 'socket.io',
+    host: window.location.hostname + ':6001'
+})

@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Auth;
-use Illuminate\Http\Request;
 use Session;
+use App\User;
+use Illuminate\Http\Request;
 
 class profileController extends Controller
 {
     public function index(User $user)
     {
         $user->load(['posts' => function ($query) {
-            $query->orderBy('id', 'desc');
+            $query->orderBy('id', 'desc')->limit(3);
         }]);
 
         $friends = $user->friends();
@@ -31,8 +31,7 @@ class profileController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-                'location' => 'required',
-                'about'    => 'required|max:255',
+                'about'    => 'max:255',
             ]);
 
         Auth::user()->profile()->update([
@@ -43,6 +42,7 @@ class profileController extends Controller
         if ($request->hasFile('avatar')) {
             Auth::user()->update([
                     'avatar' => $request->avatar->store('public/avatars'),
+                    // 'avatar' => $request->avatar->storeAs('avatars', Auth::user()->slug, 'minio'),
                 ]);
         }
         Session::flash('success', 'profile updated');

@@ -2,12 +2,13 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
-use Laravel\Scout\Searchable;
-use Merodiro\Friendships\Friendable;
 use Storage;
+use App\Events\UserCreated;
+use Laravel\Scout\Searchable;
+use Laravel\Passport\HasApiTokens;
+use Merodiro\Friendships\Friendable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
@@ -20,6 +21,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password', 'slug', 'gender', 'avatar',
+    ];
+
+    protected $dispatchesEvents = [
+        'created' => UserCreated::class,
     ];
 
     /**

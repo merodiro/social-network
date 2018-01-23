@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Profile;
 use App\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -62,7 +61,7 @@ class RegisterController extends Controller
      *
      * @param array $data
      *
-     * @return User
+     * @return \App\User
      */
     protected function create(array $data)
     {
@@ -80,8 +79,6 @@ class RegisterController extends Controller
             'slug'     => str_slug($data['name']),
             'avatar'   => $avatar,
         ]);
-
-        Profile::create(['user_id' => $user->id]);
 
         return $user;
     }

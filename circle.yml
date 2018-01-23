@@ -1,38 +1,16 @@
-## Customize the test machine
 machine:
-    timezone:
-        America/Chicago
     php:
         version:
-            7.1.0
-    environment:
-        ENVIRONMENT: testing
-        DB_HOST: 127.0.0.1
-        DB_CONNECTION: mysql
-        DB_DATABASE: circle_test
-        DB_USERNAME: ubuntu
-        SCOUT_DRIVER: tntsearch
-        APP_KEY: base64:vUGbF1qBe+cp4T2KQ/lzJfmxGc1EaF9XXVQMpiTVB88=
-    services:
-        - mysql
+            7.1.9
 
 dependencies:
     override:
         - php --version
         - composer install --prefer-source --no-interaction
-        # - pecl install xdebug
     cache_directories:
         - ~/.composer/cache
-
     pre:
         - sudo composer self-update
-    post:
-        - sudo chmod -R 775 storage
-        - sudo chmod -R 775 bootstrap/
 test:
     post:
         - phpunit
-
-database:
-    override:
-        - php artisan migrate --force --env=testing --no-interaction -vvv

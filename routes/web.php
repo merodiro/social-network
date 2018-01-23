@@ -27,3 +27,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/profile/{user}', 'profileController@index')
     ->name('profile');
+
+Route::get('/admin', function () {
+    Settings::set('name', 'Social network');
+    // Settings::flush();
+    // return view('welcome');
+    return Settings::all();
+})->middleware('admin');

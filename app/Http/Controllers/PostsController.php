@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
 use Auth;
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -12,7 +12,9 @@ class PostsController extends Controller
     {
         $post = Auth::user()->posts()->create($request->all());
 
-        return Post::find($post->id);
+        $post->load('user', 'likes');
+
+        return $post;
     }
 
     public function feed()

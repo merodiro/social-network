@@ -1,13 +1,12 @@
 <template>
-	<div class="container">
-	    <div class="row">
-	        <div class="col-md-10 col-md-offset-1">
-	            <div class="panel panel-default">
-
-	                <div class="panel-body">
+	<div class="container mb-3">
+	    <div class="row justify-content-lg-center">
+	        <div class="col-lg-10">
+	            <div class="card">
+	                <div class="card-body">
 	                    <textarea rows="5" class="form-control" v-model="content" placeholder="What is on your mind?"></textarea>
 	                    <br>
-	                    <button class="btn btn-success pull-right" :disabled="not_working" @click="create_post()">
+	                    <button class="btn btn-outline-success pull-right" :disabled="not_working" @click="create_post()">
 	                    	Create a post
 	                    </button>
 	                </div>
@@ -32,9 +31,7 @@ export default {
 			axios.post('/api/post/create', {content: this.content})
 				.then(res => {
 					this.content = ''
-					noty({
-						text: 'Your post has been published'
-					})
+					noty('Your post has been published')
 					this.$store.commit('ADD_POST', res.data)
 				})
 		}
@@ -47,9 +44,6 @@ export default {
 				this.not_working = true
 			}
 		}
-	},
-	mounted () {
-
 	}
 }
 </script>

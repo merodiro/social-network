@@ -1,0 +1,17 @@
+{
+    "apps": [
+        {
+            "name": "artisan-queue-work",
+            "script": "artisan",
+            "args": ["queue:work", "--tries=1"],
+            "exec_interpreter": "php",
+            "exec_mode": "fork_mode",
+            "max_memory_restart": "512M"
+        },
+        {
+            "name": "echo-server",
+            "script": "node_modules/laravel-echo-server/bin/server.js",
+            "args": "start"
+        }
+    ]
+}

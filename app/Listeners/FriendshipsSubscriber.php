@@ -2,21 +2,36 @@
 
 namespace App\Listeners;
 
-use App\Notifications\FriendRequestAccepted;
+use App\User;
 use App\Notifications\NewFriendRequest;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Notifications\FriendRequestAccepted;
 
 class FriendshipsSubscriber implements ShouldQueue
 {
     use InteractsWithQueue;
 
-    public function onFriendRequestSent($sender, $recipient)
+    public function onFriendRequestSent(User $sender, User $recipient)
     {
         $recipient->notify(new NewFriendRequest($sender));
+
+        // TODO
+
+        // $notifications = $recipient->notifications;
+
+        // $notifications->each(function ($notification) use ($sender) {
+        //     if ($notification->data['message'] == "$sender->name sent you a friend request") {
+        //         $GLOBALS['exist'] = true;
+        //         return false;
+        //     }
+        // });
+        // if (!isset($GLOBALS['exist'])) {
+        //     $recipient->notify(new NewFriendRequest($sender));
+        // }
     }
 
-    public function onFriendRequestAccepted($recipient, $sender)
+    public function onFriendRequestAccepted(User $recipient, User $sender)
     {
         $sender->notify(new FriendRequestAccepted($recipient));
     }

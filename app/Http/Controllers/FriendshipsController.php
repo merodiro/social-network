@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Auth;
+use App\User;
 
 class FriendshipsController extends Controller
 {
