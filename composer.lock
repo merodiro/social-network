@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b5218de4a89c2a0e522c32711d3c31bb",
+    "content-hash": "b388a930a4566e2bf1edecf9e054c96b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1340,16 +1340,16 @@
         },
         {
             "name": "merodiro/settings",
-            "version": "dev-master",
+            "version": "v0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/merodiro/settings.git",
-                "reference": "c1733399b46a9c29303770c5243c2e9af3bcd76a"
+                "reference": "ad31fc784e43a41bafb7c050a9f0362ab64ba999"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/merodiro/settings/zipball/c1733399b46a9c29303770c5243c2e9af3bcd76a",
-                "reference": "c1733399b46a9c29303770c5243c2e9af3bcd76a",
+                "url": "https://api.github.com/repos/merodiro/settings/zipball/ad31fc784e43a41bafb7c050a9f0362ab64ba999",
+                "reference": "ad31fc784e43a41bafb7c050a9f0362ab64ba999",
                 "shasum": ""
             },
             "require": {
@@ -1399,7 +1399,7 @@
                 "Merodiro",
                 "Settings"
             ],
-            "time": "2018-01-23T18:45:12+00:00"
+            "time": "2018-01-23T19:19:23+00:00"
         },
         {
             "name": "merodiro/simple-admin",
@@ -5721,7 +5721,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "merodiro/settings": 20,
         "merodiro/simple-admin": 20
     },
     "prefer-stable": false,
