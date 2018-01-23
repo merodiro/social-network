@@ -9,11 +9,11 @@ sudo: false
 dist: trusty
 
 before_script:
-  - composer install --no-interaction --prefer-source
+  - composer install --no-interaction --prefer-dist
 
 cache:
   directories:
-    - $HOME/.composer/cache
+    - $HOME/.composer/cache/files
 
 script:
   - vendor/bin/phpunit

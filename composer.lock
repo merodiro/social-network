@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "168650701df0a4928f0440ec406f0654",
+    "content-hash": "a7b1444c6996923a7632291ca57a9256",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -58,16 +58,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.51.0",
+            "version": "3.52.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "a932a76e110dc2c65c216de21a1aa65e151d21ef"
+                "reference": "1bc98d7f1f4b6ffb3c54d6a854d5ee5b7137e220"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a932a76e110dc2c65c216de21a1aa65e151d21ef",
-                "reference": "a932a76e110dc2c65c216de21a1aa65e151d21ef",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1bc98d7f1f4b6ffb3c54d6a854d5ee5b7137e220",
+                "reference": "1bc98d7f1f4b6ffb3c54d6a854d5ee5b7137e220",
                 "shasum": ""
             },
             "require": {
@@ -134,7 +134,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-01-19T20:32:42+00:00"
+            "time": "2018-01-22T22:20:45+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -1340,16 +1340,16 @@
         },
         {
             "name": "merodiro/settings",
-            "version": "v0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/merodiro/settings.git",
-                "reference": "516af1118debbc8eb805c04dc2014abfd755923f"
+                "reference": "742e658f3d6445afb3b5e5f5e9bf1e3f44b5e7bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/merodiro/settings/zipball/516af1118debbc8eb805c04dc2014abfd755923f",
-                "reference": "516af1118debbc8eb805c04dc2014abfd755923f",
+                "url": "https://api.github.com/repos/merodiro/settings/zipball/742e658f3d6445afb3b5e5f5e9bf1e3f44b5e7bb",
+                "reference": "742e658f3d6445afb3b5e5f5e9bf1e3f44b5e7bb",
                 "shasum": ""
             },
             "require": {
@@ -1397,7 +1397,7 @@
                 "Merodiro",
                 "Settings"
             ],
-            "time": "2017-12-23T20:53:18+00:00"
+            "time": "2018-01-22T23:13:52+00:00"
         },
         {
             "name": "merodiro/simple-admin",
@@ -5719,12 +5719,13 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "merodiro/settings": 20,
         "merodiro/simple-admin": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.0.0"
+        "php": ">=7.1.0"
     },
     "platform-dev": []
 }

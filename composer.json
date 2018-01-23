@@ -13,7 +13,7 @@
         "laravel/scout": "^3.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "merodiro/friendships": "~1.0",
-        "merodiro/settings": "^0.1.0",
+        "merodiro/settings": "dev-master",
         "merodiro/simple-admin": "dev-master",
         "predis/predis": "^1.1",
         "sentry/sentry-laravel": "^0.8.0"
