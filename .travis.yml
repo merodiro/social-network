@@ -11,9 +11,9 @@ dist: trusty
 before_script:
   - composer install --no-interaction --prefer-dist
 
-cache:
-  directories:
-    - $HOME/.composer/cache/files
+# cache:
+#   directories:
+#     - $HOME/.composer/cache/files
 
 script:
   - vendor/bin/phpunit
