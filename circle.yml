@@ -1,6 +1,4 @@
 machine:
-    timezone:
-        America/Chicago
     php:
         version:
             7.1.9
