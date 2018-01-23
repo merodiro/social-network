@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0cb785db115116ffa5c175950178de1c",
+    "content-hash": "b5218de4a89c2a0e522c32711d3c31bb",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1340,16 +1340,16 @@
         },
         {
             "name": "merodiro/settings",
-            "version": "v0.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/merodiro/settings.git",
-                "reference": "c181a8677e73fe78ba01204fa631a0737f6599e8"
+                "reference": "c1733399b46a9c29303770c5243c2e9af3bcd76a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/merodiro/settings/zipball/c181a8677e73fe78ba01204fa631a0737f6599e8",
-                "reference": "c181a8677e73fe78ba01204fa631a0737f6599e8",
+                "url": "https://api.github.com/repos/merodiro/settings/zipball/c1733399b46a9c29303770c5243c2e9af3bcd76a",
+                "reference": "c1733399b46a9c29303770c5243c2e9af3bcd76a",
                 "shasum": ""
             },
             "require": {
@@ -1357,7 +1357,6 @@
                 "php": "~7.0"
             },
             "require-dev": {
-                "codeclimate/php-test-reporter": "^0.4.4",
                 "graham-campbell/testbench": "^5.0",
                 "mockery/mockery": "^1.0",
                 "phpunit/phpunit": "6.*",
@@ -1400,7 +1399,7 @@
                 "Merodiro",
                 "Settings"
             ],
-            "time": "2018-01-23T14:48:27+00:00"
+            "time": "2018-01-23T18:45:12+00:00"
         },
         {
             "name": "merodiro/simple-admin",
@@ -5722,6 +5721,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "merodiro/settings": 20,
         "merodiro/simple-admin": 20
     },
     "prefer-stable": false,

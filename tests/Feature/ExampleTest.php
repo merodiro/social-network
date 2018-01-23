@@ -20,9 +20,7 @@ class ExampleTest extends TestCase
         Settings::set('name', 'Social network');
 
         $response = $this->get('/');
-
         $response->assertSee('Social network');
-
         $response->assertStatus(200);
     }
 }
