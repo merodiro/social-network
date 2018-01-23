@@ -3,8 +3,8 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Merodiro\Settings\Facades\Settings;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
 {
