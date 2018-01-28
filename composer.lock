@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b388a930a4566e2bf1edecf9e054c96b",
+    "content-hash": "ac279af8021733a2c61caad693a829f4",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -58,16 +58,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.52.0",
+            "version": "3.52.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "1bc98d7f1f4b6ffb3c54d6a854d5ee5b7137e220"
+                "reference": "69ba4e07288a532fe7635f7cdd73cffa6509f538"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1bc98d7f1f4b6ffb3c54d6a854d5ee5b7137e220",
-                "reference": "1bc98d7f1f4b6ffb3c54d6a854d5ee5b7137e220",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/69ba4e07288a532fe7635f7cdd73cffa6509f538",
+                "reference": "69ba4e07288a532fe7635f7cdd73cffa6509f538",
                 "shasum": ""
             },
             "require": {
@@ -134,7 +134,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-01-22T22:20:45+00:00"
+            "time": "2018-01-26T22:17:57+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -911,16 +911,16 @@
         },
         {
             "name": "laravel/scout",
-            "version": "v3.0.12",
+            "version": "v3.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/scout.git",
-                "reference": "0d97152e9006481e1608ad4286e53acf20a3c110"
+                "reference": "154beb9255cef7e341c5838824ed1234e71e194d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/scout/zipball/0d97152e9006481e1608ad4286e53acf20a3c110",
-                "reference": "0d97152e9006481e1608ad4286e53acf20a3c110",
+                "url": "https://api.github.com/repos/laravel/scout/zipball/154beb9255cef7e341c5838824ed1234e71e194d",
+                "reference": "154beb9255cef7e341c5838824ed1234e71e194d",
                 "shasum": ""
             },
             "require": {
@@ -972,7 +972,7 @@
                 "laravel",
                 "search"
             ],
-            "time": "2017-12-07T22:15:01+00:00"
+            "time": "2018-01-26T22:15:03+00:00"
         },
         {
             "name": "lcobucci/jwt",
@@ -1084,16 +1084,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.41",
+            "version": "1.0.42",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "f400aa98912c561ba625ea4065031b7a41e5a155"
+                "reference": "09eabc54e199950041aef258a85847676496fe8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/f400aa98912c561ba625ea4065031b7a41e5a155",
-                "reference": "f400aa98912c561ba625ea4065031b7a41e5a155",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/09eabc54e199950041aef258a85847676496fe8e",
+                "reference": "09eabc54e199950041aef258a85847676496fe8e",
                 "shasum": ""
             },
             "require": {
@@ -1104,12 +1104,13 @@
             },
             "require-dev": {
                 "ext-fileinfo": "*",
-                "mockery/mockery": "~0.9",
-                "phpspec/phpspec": "^2.2",
-                "phpunit/phpunit": "~4.8"
+                "phpspec/phpspec": "^3.4",
+                "phpunit/phpunit": "^5.7"
             },
             "suggest": {
                 "ext-fileinfo": "Required for MimeType",
+                "ext-ftp": "Allows you to use FTP server storage",
+                "ext-openssl": "Allows you to use FTPS server storage",
                 "league/flysystem-aws-s3-v2": "Allows you to use S3 storage with AWS SDK v2",
                 "league/flysystem-aws-s3-v3": "Allows you to use S3 storage with AWS SDK v3",
                 "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
@@ -1163,7 +1164,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2017-08-06T17:41:04+00:00"
+            "time": "2018-01-27T16:03:56+00:00"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -1282,27 +1283,25 @@
         },
         {
             "name": "merodiro/friendships",
-            "version": "v1.1.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/merodiro/Friendships.git",
-                "reference": "b006b07404d1511805f969e49e6fed02593b4f8e"
+                "reference": "fc90da66ee353adb824135db160384c34d4e5bbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/merodiro/Friendships/zipball/b006b07404d1511805f969e49e6fed02593b4f8e",
-                "reference": "b006b07404d1511805f969e49e6fed02593b4f8e",
+                "url": "https://api.github.com/repos/merodiro/Friendships/zipball/fc90da66ee353adb824135db160384c34d4e5bbe",
+                "reference": "fc90da66ee353adb824135db160384c34d4e5bbe",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "illuminate/support": "^5.5",
+                "php": ">=7.0.0"
             },
             "require-dev": {
-                "codeclimate/php-test-reporter": "^0.4.4",
-                "graham-campbell/testbench": "^4.0",
+                "graham-campbell/testbench": "^5.0",
                 "mockery/mockery": "^1.0",
-                "orchestra/database": "~3.5",
-                "phpunit/phpunit": "6.*",
                 "squizlabs/php_codesniffer": "^3.2"
             },
             "type": "library",
@@ -1336,7 +1335,7 @@
                 "friendships",
                 "laravel"
             ],
-            "time": "2018-01-18T13:17:32+00:00"
+            "time": "2018-01-24T17:58:16+00:00"
         },
         {
             "name": "merodiro/settings",
@@ -4111,16 +4110,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v3.1.3",
+            "version": "v3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "579f4ce846734a1cf55d6a531d00ca07a43e3cda"
+                "reference": "e57b3a09784f846411aa7ed664eedb73e3399078"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/579f4ce846734a1cf55d6a531d00ca07a43e3cda",
-                "reference": "579f4ce846734a1cf55d6a531d00ca07a43e3cda",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/e57b3a09784f846411aa7ed664eedb73e3399078",
+                "reference": "e57b3a09784f846411aa7ed664eedb73e3399078",
                 "shasum": ""
             },
             "require": {
@@ -4158,7 +4157,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2017-12-26T14:43:21+00:00"
+            "time": "2018-01-25T21:31:33+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -4318,16 +4317,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "4.2.0",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "66465776cfc249844bde6d117abff1d22e06c2da"
+                "reference": "94fd0001232e47129dd3504189fa1c7225010d08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/66465776cfc249844bde6d117abff1d22e06c2da",
-                "reference": "66465776cfc249844bde6d117abff1d22e06c2da",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/94fd0001232e47129dd3504189fa1c7225010d08",
+                "reference": "94fd0001232e47129dd3504189fa1c7225010d08",
                 "shasum": ""
             },
             "require": {
@@ -4365,7 +4364,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2017-11-27T17:38:31+00:00"
+            "time": "2017-11-30T07:14:17+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -5721,6 +5720,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "merodiro/friendships": 20,
         "merodiro/simple-admin": 20
     },
     "prefer-stable": false,

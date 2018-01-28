@@ -16,11 +16,14 @@ Route::get('/', 'HomeController@index');
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/home', 'HomeController@home');
+    Route::get('/home', 'HomeController@home')
+        ->name('home');
 
-    Route::name('profile.edit')->get('/profile/edit', 'profileController@edit');
+    Route::get('/profile/edit', 'profileController@edit')
+        ->name('profile.edit');
 
-    Route::name('profile.update')->post('/profile/update', 'profileController@update');
+    Route::post('/profile/update', 'profileController@update')
+        ->name('profile.update');
 
     Route::get('/notifications', 'NotificationsController@notifications');
 });

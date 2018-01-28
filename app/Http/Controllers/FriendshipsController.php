@@ -20,7 +20,11 @@ class FriendshipsController extends Controller
         $res = Auth::user()
             ->addFriend($user);
 
-        return $res;
+        if ($res) {
+            return response('', 201);
+        }
+
+        return response('', 500);
     }
 
     public function acceptFriend(User $user)
@@ -28,7 +32,11 @@ class FriendshipsController extends Controller
         $res = Auth::user()
             ->acceptFriend($user);
 
-        return $res;
+        if ($res) {
+            return response('', 201);
+        }
+
+        return response('', 500);
     }
 
     public function deleteFriend(User $user)
@@ -36,6 +44,10 @@ class FriendshipsController extends Controller
         $res = Auth::user()
             ->deleteFriend($user);
 
-        return $res;
+        if ($res) {
+            return response('', 201);
+        }
+
+        return response('', 500);
     }
 }
