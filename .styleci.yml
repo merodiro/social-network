@@ -1,14 +1,14 @@
-php: true
 js: true
 css: true
 vue: true
 
-preset: laravel
+php:
+  preset: laravel
 
-risky: false
+  risky: false
 
-finder:
-  exclude:
-    - "bootstrap/cache"
-  name:
-    - "*.php"
+  finder:
+    exclude:
+      - "bootstrap/cache"
+    name:
+      - "*.php"
