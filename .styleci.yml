@@ -1,3 +1,8 @@
+php: true
+js: true
+css: true
+vue: true
+
 preset: laravel
 
 risky: false
