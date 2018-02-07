@@ -70,6 +70,13 @@
       0 => 'Merodiro\\SimpleAdmin\\SimpleAdminServiceProvider',
     ),
   ),
+  'nunomaduro/collision' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    ),
+  ),
   'sentry/sentry-laravel' => 
   array (
     'providers' => 

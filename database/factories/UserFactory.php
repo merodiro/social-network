@@ -19,7 +19,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'slug'           => str_slug($name),
         'gender'         => $gender,
         'avatar'         => $avatar,
-        'password'       => $password ?: $password = bcrypt('secret'),
+        'password'       => $password ?: $password = Hash::make('secret'),
         'remember_token' => str_random(10),
     ];
 });
