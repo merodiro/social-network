@@ -1,8 +1,8 @@
 window._ = require('lodash')
 
 try {
-  window.Popper = require('popper.js/dist/umd/popper')
-  window.$ = window.jQuery = require('jquery/dist/jquery.slim')
+  window.Popper = require('popper.js').default
+  window.$ = window.jQuery = require('jquery')
 
   require('bootstrap')
 } catch (e) {}

@@ -6,22 +6,22 @@ mix.js('resources/assets/js/app.js', 'public/js')
   // .browserSync({
   //   proxy: 'social-network.oo'
   // })
-  .extract([
-    'axios',
-    'bootstrap',
-    'highlight.js',
-    'jquery/dist/jquery.slim',
-    'laravel-echo',
-    'lodash',
-    'marked',
-    'noty',
-    'popper.js/dist/umd/popper',
-    'raven-js',
-    'socket.io-client',
-    'vue',
-    'vuex',
-    'vue-instantsearch',
-  ])
+  // .extract([
+  //   'axios',
+  //   'bootstrap',
+  //   'highlight.js',
+  //   'jquery',
+  //   'laravel-echo',
+  //   'lodash',
+  //   'marked',
+  //   'noty',
+  //   'popper.js',
+  //   'raven-js',
+  //   'socket.io-client',
+  //   'vue',
+  //   'vuex',
+  //   'vue-instantsearch',
+  // ])
   .options({
     extractVueStyles: true,
   })
