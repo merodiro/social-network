@@ -1,6 +1,6 @@
 preset: laravel
 finder:
-exclude:
-    - "bootstrap/cache"
-name:
-    - "*.php"
+    exclude:
+        - "bootstrap/cache"
+    name:
+        - "*.php"
