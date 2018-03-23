@@ -1,9 +1,9 @@
 {
     "apps": [
         {
-            "name": "artisan-queue-work",
+            "name": "artisan-horizon",
             "script": "artisan",
-            "args": ["queue:work", "--tries=1"],
+            "args": ["horizon"],
             "exec_interpreter": "php",
             "exec_mode": "fork_mode",
             "max_memory_restart": "512M"
@@ -12,6 +12,10 @@
             "name": "echo-server",
             "script": "node_modules/laravel-echo-server/bin/server.js",
             "args": "start"
+        },
+        {
+            "name": "maildev",
+            "script": "node_modules/maildev/bin/maildev"
         }
     ]
 }
