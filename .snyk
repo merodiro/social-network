@@ -1,0 +1,12 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - laravel-echo-server > inquirer > lodash:
+        patched: '2020-05-02T23:15:56.530Z'
+    - pm2 > async > lodash:
+        patched: '2020-05-02T23:15:56.530Z'
+    - laravel-echo-server > lodash:
+        patched: '2020-05-02T23:15:56.530Z'
