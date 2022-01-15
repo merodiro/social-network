@@ -27,7 +27,7 @@
     "laravel-mix-purgecss": "^1.0.4",
     "lodash": "^4.17.4",
     "maildev": "^1.0.0-rc3",
-    "marked": "^0.3.6",
+    "marked": "^4.0.10",
     "noty": "^3.1.0",
     "popper.js": "^1.12.9",
     "raven-js": "^3.15.0",
